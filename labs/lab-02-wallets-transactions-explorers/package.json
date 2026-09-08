@@ -1,0 +1,13 @@
+{
+  "name": "@blockchain-handbook/lab-02",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "inspect": "node scripts/inspect-transaction.mjs"
+  },
+  "dependencies": {
+    "viem": "2.56.3"
+  }
+}

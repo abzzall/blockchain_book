@@ -1,0 +1,19 @@
+{
+  "name": "blockchain-handbook-companion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Executable examples and labs for the Blockchain Handbook",
+  "workspaces": [
+    "labs/lab-*",
+    "labs/lab-*/contract",
+    "labs/lab-*/frontend"
+  ],
+  "scripts": {
+    "test:labs": "npm run test --workspaces --if-present",
+    "build:labs": "npm run build --workspaces --if-present",
+    "check:labs": "npm run test:labs && npm run build:labs"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

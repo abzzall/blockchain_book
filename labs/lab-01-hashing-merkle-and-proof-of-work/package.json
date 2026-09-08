@@ -1,0 +1,14 @@
+{
+  "name": "@blockchain-handbook/lab-01",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "hash": "node scripts/hash.mjs",
+    "merkle": "node scripts/merkle.mjs",
+    "mine": "node scripts/mine.mjs",
+    "tamper": "node scripts/tamper.mjs",
+    "verify": "node scripts/verify-results.mjs"
+  }
+}

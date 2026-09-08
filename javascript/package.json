@@ -1,0 +1,16 @@
+{
+  "name": "@blockchain-handbook/javascript",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chapter 21 samples: reading and writing Ethereum from JavaScript",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo": "node src/read-chain.mjs"
+  },
+  "dependencies": {
+    "ethers": "6.17.0",
+    "viem": "2.56.3"
+  },
+  "engines": { "node": ">=20" }
+}
