@@ -11,7 +11,8 @@ the end. One short paragraph.
 
 ## Safety and environment
 
-- Network: local development chain, or the named testnet, and which.
+- Network: local development chain unless the work is explicitly marked as an
+  optional self-study extension.
 - Assets: test-only, and why they have no value.
 - The dedicated-account rule where a wallet is involved.
 - Never ask for a seed phrase or a private key. Never instruct mainnet activity.
@@ -34,7 +35,7 @@ Everything that can be automated, with the exact commands. State how many tests
 must pass before the student continues.
 
 ```bash
-cd samples-and-code/labs/lab-NN-name
+cd part-NN-name/labs/lab-NN-name
 npm run build
 npm test
 ```
@@ -55,8 +56,6 @@ labels change and the current documentation is the authority.
 
 Point at `RESULTS.md`. Every marked value must be one of:
 
-- **checkable on a public network** — a transaction hash, address, or block
-  number a marker can look up;
 - **checkable locally** — a fresh local chain is deterministic, so contract
   addresses and gas figures repeat exactly for everyone;
 - **derived from a signature** — a function selector or an event topic0;

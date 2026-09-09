@@ -1,0 +1,14 @@
+{
+  "name": "@blockchain-handbook/lab-15",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "batch": "node scripts/batch.mjs",
+    "costs": "node scripts/costs.mjs",
+    "challenge": "node scripts/challenge.mjs",
+    "withhold": "node scripts/withhold.mjs",
+    "verify": "node scripts/verify-results.mjs"
+  }
+}

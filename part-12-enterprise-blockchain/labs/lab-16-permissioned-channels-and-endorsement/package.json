@@ -1,0 +1,15 @@
+{
+  "name": "@blockchain-handbook/lab-16",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "identity": "node scripts/identity.mjs",
+    "endorse": "node scripts/endorse.mjs",
+    "channels": "node scripts/channels.mjs",
+    "conflict": "node scripts/conflict.mjs",
+    "nondeterminism": "node scripts/nondeterminism.mjs",
+    "verify": "node scripts/verify-results.mjs"
+  }
+}

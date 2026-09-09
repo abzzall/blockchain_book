@@ -1,12 +1,12 @@
 {
-  "name": "blockchain-handbook-companion",
+  "name": "blockchain-textbook-samples-and-code",
   "version": "1.0.0",
   "private": true,
-  "description": "Executable examples and labs for the Blockchain Handbook",
+  "description": "Executable samples, implementations, and project code for the Blockchain textbook",
   "workspaces": [
-    "labs/lab-*",
-    "labs/lab-*/contract",
-    "labs/lab-*/frontend"
+    "part-*/labs/lab-*",
+    "part-*/labs/lab-*/contract",
+    "part-*/labs/lab-*/frontend"
   ],
   "scripts": {
     "test:labs": "npm run test --workspaces --if-present",

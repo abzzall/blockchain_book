@@ -1,12 +1,12 @@
-# Lab authoring standard
+# Implementation authoring standard
 
-This standard applies to every lab in this book, including those involving a
+This standard applies to every implementation in this book, including those involving a
 browser, wallet, explorer, faucet, Remix IDE, or dApp interface.
 
-## Labs do not use screenshots
+## Implementations do not use screenshots
 
 Earlier versions of this standard asked students to capture screenshots as
-evidence. **They no longer do, and no lab may require one.** The reasons are
+evidence. **They no longer do, and no implementation may require one.** The reasons are
 practical rather than stylistic:
 
 - A screenshot proves that a screen looked a certain way on one machine. It
