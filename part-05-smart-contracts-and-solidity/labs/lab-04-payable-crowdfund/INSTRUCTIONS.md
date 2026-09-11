@@ -36,7 +36,7 @@ nothing in the marking depends on it.
 | `contracts/CourseCrowdfund.sol` | the campaign: `contribute`, `withdraw`, `refund`, and a rejecting `receive` |
 | `contracts/RejectingBeneficiary.sol` | a contract that refuses payment, used to force a failed transfer |
 | `test/CourseCrowdfund.ts` | ten behavioural tests covering value in and value out |
-| `test/Deterministic.ts` | four tests pinning the exact values this lab marks |
+| `test/Deterministic.ts` | four tests pinning the exact values this exercise marks |
 | `scripts/walkthrough.ts` | runs two complete campaigns and prints balances and gas |
 | `scripts/selectors.mjs` | prints every error selector, event topic, and payable entry point |
 | `scripts/deploy.ts` | deploys one campaign |

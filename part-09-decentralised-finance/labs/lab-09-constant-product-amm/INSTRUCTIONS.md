@@ -12,12 +12,12 @@ rather than as vocabulary.
 ## Safety and environment
 
 - Network: Hardhat's in-process local chain. Nothing leaves your machine.
-- Assets: two tokens invented for this lab, mintable by anyone, worth nothing.
+- Assets: two tokens invented for this exercise, mintable by anyone, worth nothing.
 - The pool is written to be read, not deployed. Its own comments list what a
   production pool has that it does not, and `RESULTS.md` asks you about two of
   those omissions. Never deploy it anywhere.
 
-This lab describes how a mechanism works. It is not advice about providing
+This exercise describes how a mechanism works. It is not advice about providing
 liquidity, and nothing in it should be read as a suggestion to do so.
 
 ## Verified versions
@@ -37,7 +37,7 @@ liquidity, and nothing in it should be read as a suggestion to do so.
 |---|---|
 | `contracts/ConstantProductPool.sol` | seed, add and remove liquidity, quote, swap |
 | `contracts/TestToken.sol` | a plain mintable ERC-20, so the pool has something to trade |
-| `test/Pool.ts` | twelve tests, two of which pin the values this lab marks |
+| `test/Pool.ts` | twelve tests, two of which pin the values this exercise marks |
 | `scripts/walkthrough.ts` | seeds, quotes a size ladder, swaps, and provides liquidity |
 | `RESULTS.md` | the template you fill in |
 
@@ -54,7 +54,7 @@ All twelve tests must pass before you continue.
 ### Part A — Read the quote function first
 
 Open `ConstantProductPool.sol` and read `quote` before running anything. It is
-four lines. Everything in this lab follows from them: the fee is taken off the
+four lines. Everything in this exercise follows from them: the fee is taken off the
 input before the input counts towards the invariant, and the output is whatever
 keeps the product of the reserves from falling.
 

@@ -1,4 +1,4 @@
-# Lab 2 results
+# Exercise 2 results
 
 Fill this in as you go. Do not attach images; every line here is either a value
 from a reproducible local chain or an explanation in your own words.

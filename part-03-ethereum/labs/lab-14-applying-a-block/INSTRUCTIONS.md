@@ -16,12 +16,12 @@ identical recorded values. Everything marked is fixed either by the
 specification or by the behaviour of the state machine, never by a language
 choice.
 
-This lab runs entirely offline. There is no wallet, no network, no browser, no
+This exercise runs entirely offline. There is no wallet, no network, no browser, no
 node software, and no test assets.
 
 ## Safety and environment
 
-- Network: none. Nothing in this lab touches any blockchain.
+- Network: none. Nothing in this exercise touches any blockchain.
 - Assets: none. All balances are integers in a dictionary.
 - Every private key here is a fixed constant printed in this document and is
   public by definition. Never use one on any network.
@@ -128,7 +128,7 @@ Apply a transaction in exactly this order:
    and no value moves.
 7. Otherwise deduct `value` from the sender and credit it to `to`.
 
-The distinction in steps 2–4 versus step 6 is the point of the lab: a rejected
+The distinction in steps 2–4 versus step 6 is the point of the exercise: a rejected
 transaction never enters the block, whereas a failed one does and is paid for.
 
 ### State root
@@ -177,7 +177,7 @@ A complete, tested reference implementation in Python is supplied:
 | `verify_results.py` | the marking script |
 
 Read it if you want a worked answer, or ignore it and write your own. If you
-implement the lab yourself, you can still mark your work: `verify_results.py`
+implement the exercise yourself, you can still mark your work: `verify_results.py`
 checks the values you recorded, not the code you wrote.
 
 To run the reference solution:
@@ -269,7 +269,7 @@ prefix, and write wei as a plain integer with no separators.
 
 ## Troubleshooting and reset
 
-- Nothing in this lab writes state, so there is nothing to reset.
+- Nothing in this exercise writes state, so there is nothing to reset.
 - A wrong address usually means SHA-3 was used instead of Keccak. Check the
   `keccak256("")` vector above first; it separates the two immediately.
 - A wrong state root with correct balances usually means the accounts were not

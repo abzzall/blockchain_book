@@ -1,4 +1,4 @@
-# Lab 5 results
+# Exercise 5 results
 
 Fill this in as you go. No images. The table values are fixed by the contract
 source, the shipped ABI, and a fresh local chain, so `npm run verify` marks

@@ -5,7 +5,7 @@
 You will run a complete on-chain election: a contract that holds an electoral
 roll, a voting period, one vote per eligible address, and a published result,
 together with a React frontend that connects a wallet and casts a vote through
-it. You will then answer the question the lab exists to ask, which is why none
+it. You will then answer the question the exercise exists to ask, which is why none
 of that makes the system suitable for a national election.
 
 ## Safety and environment
@@ -14,7 +14,7 @@ of that makes the system suitable for a national election.
 - Assets: local test ether only, invented by the development chain.
 - Import only the disposable keys the local chain prints, and only into a
   browser profile you keep for coursework. Never reuse one anywhere else.
-- Never connect a wallet holding real assets to this lab.
+- Never connect a wallet holding real assets to this exercise.
 
 ## Verified versions
 
@@ -34,7 +34,7 @@ of that makes the system suitable for a national election.
 |---|---|
 | `contract/contracts/ClassElection.sol` | roll, schedule, one-vote-per-address, result |
 | `contract/test/ClassElection.ts` | three behavioural tests |
-| `contract/test/Deterministic.ts` | five tests pinning the values this lab marks |
+| `contract/test/Deterministic.ts` | five tests pinning the values this exercise marks |
 | `contract/scripts/walkthrough.ts` | a whole election, with gas and every refusal |
 | `contract/scripts/selectors.mjs` | every function, error, and event selector |
 | `frontend/src/` | the React application |
@@ -122,7 +122,7 @@ nothing in it needs to be: what matters there is what you can explain.
 ## What to explain
 
 `RESULTS.md` asks nine questions. Five are about the contract, three are about
-what the frontend did, and the last is the one the whole lab is built around:
+what the frontend did, and the last is the one the whole exercise is built around:
 why a contract that enforces eligibility, prevents double voting, keeps to a
 schedule, and publishes an unalterable result is still not a national election
 system. Answer it by addressing who decides the roll, whether a vote can be kept

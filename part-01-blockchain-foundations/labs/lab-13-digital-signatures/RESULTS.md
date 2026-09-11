@@ -1,4 +1,4 @@
-# Lab 13 results
+# Exercise 13 results
 
 Fill this in as you go. Do not attach images. Every value below is one that
 another machine reproduces exactly, so `verify_results.py` can mark this file.

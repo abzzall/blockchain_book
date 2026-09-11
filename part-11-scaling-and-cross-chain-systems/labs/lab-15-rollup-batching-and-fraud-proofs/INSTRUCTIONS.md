@@ -21,6 +21,12 @@ software, and no test assets.
 
 ## Safety and environment
 
+This is a teaching model of how a rollup settles, **not** a rollup. It reproduces
+the accounting and the challenge window in a few hundred lines so that the
+argument can be followed end to end; it has no prover, no data-availability
+layer, no bridge, and no consensus. A production system differs in every one of
+those, and — as the chapter's stage discussion says — in who still holds the keys.
+
 - Network: none. Nothing here touches any blockchain.
 - Assets: none. All balances are integers in a map.
 - No keys, addresses, or accounts are involved at any point.

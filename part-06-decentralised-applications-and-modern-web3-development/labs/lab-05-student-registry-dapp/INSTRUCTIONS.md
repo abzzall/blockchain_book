@@ -3,7 +3,7 @@
 ## Outcome
 
 You will run a React application against the `StudentRegistry` contract from
-Lab 3: connect a wallet, read state without a transaction, submit a write, wait
+Exercise 3: connect a wallet, read state without a transaction, submit a write, wait
 for its receipt, and see the page update. The subject is the boundary — what the
 page does, what the wallet does, what the RPC provider does, and what only the
 contract can do.
@@ -62,12 +62,15 @@ Record the three counts, the two selectors, and the event topic.
 Two things in that output matter. Four of the five functions are `view`, and one
 is not; that division decides whether the page needs a wallet at all. And the
 `StudentSaved` event is not in the ABI, even though the contract emits it —
-which is a real limitation of this page, not an oversight in the lab.
-`RESULTS.md` asks you what follows from each.
+which is a real limitation of this page, not an oversight in the exercise.
+`RESULTS.md` asks you what follows from each. Implementation 19 is where that
+limitation is lifted: it builds a page whose entire content is events, and its
+ABI carries them. Finish this one first — the point of leaving the event out
+here is that you feel the absence before you are shown the remedy.
 
 ### Part B — Deploy the contract and point the page at it
 
-Lab 3 supplies the contract. In one terminal, start a node and deploy:
+Exercise 3 supplies the contract. In one terminal, start a node and deploy:
 
 ```bash
 cd ../lab-03-first-smart-contract
@@ -75,7 +78,7 @@ npm run node                 # leave running
 npm run deploy:local         # in a second terminal
 ```
 
-Then configure this lab and start it:
+Then configure this exercise and start it:
 
 ```bash
 cd ../lab-05-student-registry-dapp
@@ -111,7 +114,7 @@ become true rather than the control that produces it.
 
 ## What to record
 
-The ten values in `RESULTS.md`. Everything else about this lab is prose, because
+The ten values in `RESULTS.md`. Everything else about this exercise is prose, because
 everything else about it is an interface, and an interface is exactly the thing
 a recorded value cannot capture and a picture never explained.
 
@@ -144,9 +147,31 @@ blank, exiting non-zero unless every one is correct.
 - If the page shows a stale count, that is question 8, not a fault to work
   around.
 
+## Optional extension — put the event back
+
+Not required and not marked, and worth an hour.
+
+The page cannot show a history of saved students, because its ABI has no entry
+for `StudentSaved` and a log cannot be decoded without one. Add the event to
+`src/abi.ts`, matching the declaration in the contract exactly, then use it:
+
+1. Query the past. Ask the node for this contract's `StudentSaved` logs from the
+   deployment block to the head, and list what comes back.
+2. Filter on a topic. If the event indexes the student's address, request only
+   one student's entries and confirm the node did the filtering, not you.
+3. Subscribe. Watch for new ones, and confirm a save made in another browser
+   window appears without a reload.
+
+Then answer the question that matters: after doing this, what does the page show
+that it could not show before, and which of those things could the contract
+itself have told you through a `view` function?
+
+Implementation 19 does all three of these properly, including what happens when a
+log is reorganised away. Compare your version with it afterwards.
+
 ## Optional public-testnet extension
 
-Not required and not marked. Deploy Lab 3's contract to a public testnet with
+Not required and not marked. Deploy Exercise 3's contract to a public testnet with
 test assets, point `.env` at it, and use the wallet on that network. Note how
 much slower every state in step 5 becomes, and that the page's code did not
 change at all.

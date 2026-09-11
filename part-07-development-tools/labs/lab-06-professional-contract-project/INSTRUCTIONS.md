@@ -16,7 +16,7 @@ correct builds of the same source are not byte-for-byte identical.
   send anything to those addresses on a public network; their keys are published
   in the tools' own documentation.
 - The deployment key lives in a `.env` file that is not in the repository, and
-  for this lab it must be one of the local node's own disposable keys.
+  for this exercise it must be one of the local node's own disposable keys.
 
 ## Verified versions
 
@@ -37,7 +37,7 @@ correct builds of the same source are not byte-for-byte identical.
 | `test/foundry/Crowdfunding.t.sol` | the Forge test suite, with no external test library |
 | `scripts/deploy.ts` | the Hardhat deployment script |
 | `script/DeployCrowdfunding.s.sol` | the Foundry deployment script |
-| `scripts/toolchain-values.sh` | prints every value this lab marks, using both toolchains |
+| `scripts/toolchain-values.sh` | prints every value this exercise marks, using both toolchains |
 | `hardhat.config.ts`, `foundry.toml`, `.env.example` | reproducible configuration |
 | `RESULTS.md` | the template you fill in |
 

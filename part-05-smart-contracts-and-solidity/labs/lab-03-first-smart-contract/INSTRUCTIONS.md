@@ -14,7 +14,7 @@ where you see the same contract through an interface.
   VM for the interactive part. Both are simulations.
 - Assets: none with any value. The Remix VM's accounts and ether are invented by
   the page you are looking at.
-- Never connect a wallet holding real assets to this lab, and never paste a
+- Never connect a wallet holding real assets to this exercise, and never paste a
   recovery phrase or private key anywhere in it.
 
 ## Verified versions
@@ -33,7 +33,7 @@ where you see the same contract through an interface.
 |---|---|
 | `contracts/StudentRegistry.sol` | the contract, and the exact text to paste into Remix |
 | `test/StudentRegistry.ts` | three behavioural tests |
-| `test/Deterministic.ts` | three tests pinning the values this lab marks |
+| `test/Deterministic.ts` | three tests pinning the values this exercise marks |
 | `scripts/walkthrough.ts` | runs the whole story and prints gas and every revert reason |
 | `scripts/selectors.mjs` | prints every function, error, and event selector |
 | `scripts/deploy.ts` | deploys one registry |
@@ -119,7 +119,7 @@ the same deployer at nonce zero. If yours differs, your chain was not fresh.
 ## What to explain
 
 `RESULTS.md` asks six questions in prose. Two of them are about Remix and are
-the reason this lab needs no pictures: describing what the interface showed you,
+the reason this exercise needs no pictures: describing what the interface showed you,
 and what you had to know to interpret it, demonstrates something a screenshot
 never did.
 

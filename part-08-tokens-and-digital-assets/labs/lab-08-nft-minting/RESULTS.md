@@ -1,4 +1,4 @@
-# Lab 8 results
+# Exercise 8 results
 
 Fill this in as you go. No images. Every value below is fixed by the contract
 source and by a fresh local chain, so `npm run verify` marks this file.

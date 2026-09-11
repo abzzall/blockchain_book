@@ -1,4 +1,4 @@
-# Lab 12 results — capstone
+# Exercise 12 results — capstone
 
 Fill this in when your implementation passes the acceptance suite. No images.
 
@@ -27,7 +27,7 @@ The recipient is the local chain's second account,
 
 | Field | Value |
 |---|---|
-| certificateId for the recipient, issuer, and course named in LAB.md | |
+| certificateId for the recipient, issuer, and course named in INSTRUCTIONS.md | |
 | Contract address on a fresh local chain | |
 | isValid for a certificate that was issued and then revoked | |
 | totalIssued after issuing one certificate and revoking it | |

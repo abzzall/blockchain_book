@@ -3,7 +3,7 @@
 ## Outcome
 
 You will issue non-fungible certificates, hold them, transfer one, burn one, and
-watch every refusal the contract can make. The subject of the lab is not minting,
+watch every refusal the contract can make. The subject of the exercise is not minting,
 which is easy, but the relationship between the token and the thing it refers
 to: what the chain actually stores, what it never checks, and what holding one
 of these tokens does and does not prove.
@@ -13,7 +13,7 @@ of these tokens does and does not prove.
 - Network: Hardhat's in-process local chain. Nothing leaves your machine.
 - Assets: tokens you created on a simulated chain. They have no value and refer
   to nothing real.
-- The metadata URIs in this lab point at `example.invalid` and at an IPFS
+- The metadata URIs in this exercise point at `example.invalid` and at an IPFS
   identifier that does not resolve. That is deliberate, and it is part of the
   lesson.
 
@@ -35,7 +35,7 @@ of these tokens does and does not prove.
 | `contracts/CourseCertificate.sol` | ERC-721 with per-token URIs, issuer-only minting, holder-only burning |
 | `contracts/Receiver.sol` | the minimum a contract needs to be allowed to hold an NFT |
 | `contracts/NonReceiver.sol` | a contract that does not implement the hook |
-| `test/Certificate.ts` | eight tests, three of which pin the values this lab marks |
+| `test/Certificate.ts` | eight tests, three of which pin the values this exercise marks |
 | `scripts/walkthrough.ts` | issues, transfers, burns, and triggers every failure |
 | `scripts/selectors.mjs` | separates the ERC-721 interface from the extensions |
 | `RESULTS.md` | the template you fill in |
@@ -58,7 +58,7 @@ npm run selectors
 
 Record the three selectors and one event topic in `RESULTS.md`.
 
-Notice that the `Transfer` topic is the same 32 bytes you recorded in Lab 7 for
+Notice that the `Transfer` topic is the same 32 bytes you recorded in Exercise 7 for
 a fungible token. The signature `Transfer(address,address,uint256)` is identical;
 what differs is that the third argument is a token id here and an amount there,
 and that here it is indexed. Anything reading logs must know which kind of
@@ -74,7 +74,7 @@ npm run walkthrough
 Record the contract address, the symbol, the three gas figures, `issuedCount`,
 Alice's balance, and the four error names.
 
-Three things in that output are the point of the lab.
+Three things in that output are the point of the exercise.
 
 1. Two certificates were issued with two different URIs — one `ipfs://`, one
    `https://`. The contract stored both strings. It fetched neither, validated
@@ -105,7 +105,7 @@ contract did with each URI, what a content hash buys and does not buy, what a
 transfer actually moved, what the receiver check achieves, why the gas figures
 differ, and why ids are never reused.
 
-The seventh is the one that matters most and is the reason this lab exists.
+The seventh is the one that matters most and is the reason this exercise exists.
 Somebody holds a certificate issued by this contract. State exactly what that
 proves — and then state three things a reader might wrongly assume it proves.
 Address directly the relationship between holding a token and holding any right
@@ -113,7 +113,7 @@ in whatever the metadata describes. The chain records who holds an entry in a
 mapping. Everything beyond that is a claim made by somebody, somewhere else, and
 the contract has no opinion on it.
 
-Keep to mechanism and to what is and is not established. This lab does not ask
+Keep to mechanism and to what is and is not established. This exercise does not ask
 you to reach a legal conclusion, and you should not attempt one; the point is
 the far simpler observation that the chain is silent on the question.
 

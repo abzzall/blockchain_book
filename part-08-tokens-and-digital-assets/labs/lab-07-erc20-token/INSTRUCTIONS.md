@@ -13,7 +13,7 @@ finish able to say exactly what the standard guarantees and what it does not.
 - Network: Hardhat's in-process local chain. Nothing leaves your machine.
 - Assets: a token you created on a simulated chain. It has no value, cannot be
   sold, and must never be described as though it could be.
-- Never connect a wallet holding real assets to this lab.
+- Never connect a wallet holding real assets to this exercise.
 
 ## Verified versions
 
@@ -32,7 +32,7 @@ finish able to say exactly what the standard guarantees and what it does not.
 |---|---|
 | `contracts/CourseToken.sol` | the token: ERC-20, burnable, with owner-only minting |
 | `test/CourseToken.ts` | four behavioural tests |
-| `test/Deterministic.ts` | four tests pinning the values this lab marks |
+| `test/Deterministic.ts` | four tests pinning the values this exercise marks |
 | `scripts/walkthrough.ts` | the whole story, with balances, gas, and both reverts |
 | `scripts/selectors.mjs` | separates the ERC-20 interface from the extensions |
 | `scripts/deploy.ts` | deploys one token |
@@ -115,7 +115,7 @@ label, so leave the labels alone.
 - If `npm run selectors` cannot find the artifact, run `npm run build`.
 - An `OwnableUnauthorizedAccount` revert means the call came from an account
   other than the deployer. That is the access control working.
-- Amounts in this lab are written with `parseUnits(..., 18)`. Passing a plain
+- Amounts in this exercise are written with `parseUnits(..., 18)`. Passing a plain
   `1000` instead transfers 1000 of the smallest unit, which is not one token but
   a million-million-millionth of one.
 

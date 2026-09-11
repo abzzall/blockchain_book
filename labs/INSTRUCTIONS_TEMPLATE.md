@@ -1,7 +1,7 @@
 # Lab N — Title
 
 > Skeleton for a new lab. It is not a student assignment. Follow
-> [`../LAB_AUTHORING_STANDARD.md`](../LAB_AUTHORING_STANDARD.md), which this
+> [`../AUTHORING_STANDARD.md`](../AUTHORING_STANDARD.md), which this
 > template implements.
 
 ## Outcome
@@ -91,7 +91,7 @@ than breaking.
 
 ## Required files
 
-- `LAB.md`, `RESULTS.md`
+- `INSTRUCTIONS.md`, `RESULTS.md`
 - application and contract source
 - `test/` — behavioural tests, and `Deterministic.ts` for the marked values
 - `scripts/` — `walkthrough`, `selectors` where there is an ABI, `verify-results`

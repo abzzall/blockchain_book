@@ -1,4 +1,4 @@
-# Lab 10 results
+# Exercise 10 results
 
 Fill this in as you go. No images. Every value in the tables is fixed by the
 contract source and by a fresh local chain, so `npm run verify` marks this file.
@@ -93,7 +93,7 @@ it independently:**
 **8. Describe what your wallet asked you to approve, and which parts of that
 request came from the contract rather than from the page:**
 
-## Part F — The question this lab exists to ask
+## Part F — The question this exercise exists to ask
 
 **9. This contract prevents double voting, enforces eligibility, enforces a
 schedule, and publishes a result nobody can quietly alter. Explain, in a

@@ -21,6 +21,9 @@ test assets.
 
 ## Safety and scope
 
+This is a teaching model of what a public record discloses, **not** an analysis
+tool. It runs on invented data and produces no conclusion about anybody.
+
 - Network: none. Every address and amount in this exercise is invented.
 - Nothing here corresponds to any real address, transaction, or party, and
   nothing produced by it is a statement about anybody.

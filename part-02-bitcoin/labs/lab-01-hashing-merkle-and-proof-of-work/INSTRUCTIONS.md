@@ -7,12 +7,12 @@ make a chain of blocks tamper-evident: a cryptographic hash, a Merkle tree with
 membership proofs, and proof of work. You will then edit a small chain and watch
 each edit be caught, and explain which mechanism caught it.
 
-This lab runs entirely offline. There is no wallet, no network, no test assets,
+This exercise runs entirely offline. There is no wallet, no network, no test assets,
 and nothing to install beyond Node.js itself.
 
 ## Safety and environment
 
-- Network: none. Nothing in this lab touches any blockchain.
+- Network: none. Nothing in this exercise touches any blockchain.
 - Assets: none.
 - No keys, addresses, or accounts are involved at any point.
 
@@ -44,7 +44,7 @@ same in both.
 
 ## Command-line work
 
-Run everything from the lab directory:
+Run everything from the exercise directory:
 
 ```bash
 cd part-02-bitcoin/labs/lab-01-hashing-merkle-and-proof-of-work
@@ -118,7 +118,7 @@ discussion, not for marking.
 
 ## What to explain
 
-`RESULTS.md` asks five questions in prose. They are the part of this lab that a
+`RESULTS.md` asks five questions in prose. They are the part of this exercise that a
 recorded value cannot demonstrate: why the avalanche property is required, where
 a Merkle proof's saving comes from and what the verifier must already hold, why
 the cost asymmetry between mining and checking is the point, why a fixed
@@ -138,7 +138,7 @@ leave the labels alone. Write digests in lowercase without a `0x` prefix.
 
 ## Troubleshooting and reset
 
-- Nothing in this lab writes state, so there is nothing to reset. Re-running any
+- Nothing in this exercise writes state, so there is nothing to reset. Re-running any
   command reproduces its output exactly.
 - If `npm run verify` reports `MISSING`, a row label in `RESULTS.md` was
   altered. Restore it from the wording in this repository.

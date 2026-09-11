@@ -9,19 +9,19 @@ then confirm that a signature is bound to the exact bytes it signed.
 
 **The task does not require any particular programming language.** A complete
 reference solution in Python is supplied and is worth reading, but every value
-this lab marks is fixed by a published standard, so an implementation in any
+this exercise marks is fixed by a published standard, so an implementation in any
 language reproduces them exactly.
 
 Finally you will run the failure Chapter 5 warns about. Two signatures made with
 the same nonce are enough for anyone holding them to recover the private key by
 ordinary algebra. You will watch that recovery succeed and explain why it works.
 
-This lab runs entirely offline. There is no wallet, no network, no browser, no
+This exercise runs entirely offline. There is no wallet, no network, no browser, no
 test assets, and nothing to install beyond Python itself.
 
 ## Safety and environment
 
-- Network: none. Nothing in this lab touches any blockchain.
+- Network: none. Nothing in this exercise touches any blockchain.
 - Assets: none.
 - Every key here is a published test value and is public by definition. Never
   sign with a key that controls real value using this code.
@@ -41,7 +41,7 @@ test assets, and nothing to install beyond Python itself.
 ## Specification
 
 Everything in this section is normative, and all of it is published standard
-material rather than a choice made by this lab.
+material rather than a choice made by this exercise.
 
 ### Curve
 
@@ -70,7 +70,7 @@ ECDSA over secp256k1, hashing the UTF-8 message bytes with SHA-256 to obtain
 `z`. The signing nonce is derived by **RFC 6979** using HMAC-SHA256, which is
 what makes signing deterministic.
 
-No low-`s` normalisation is applied anywhere in this lab, so roughly half the
+No low-`s` normalisation is applied anywhere in this exercise, so roughly half the
 signatures you produce will have `s > n/2`. Bitcoin and Ethereum both normalise
 in consensus rules, to stop a third party rewriting `(r, s)` into the equally
 valid `(r, n - s)` and changing a transaction's hash. That rule is left out here
@@ -117,7 +117,7 @@ marks the values you recorded, not the code you wrote.
 
 ## Command-line work
 
-Run everything from the lab directory:
+Run everything from the exercise directory:
 
 ```bash
 cd part-01-blockchain-foundations/labs/lab-13-digital-signatures
@@ -186,7 +186,7 @@ Everything listed in `RESULTS.md`. It is split into two tables:
 
 ## What to explain
 
-`RESULTS.md` asks five questions in prose. They are the part of this lab that a
+`RESULTS.md` asks five questions in prose. They are the part of this exercise that a
 recorded value cannot demonstrate: why a public key can be published while the
 private key cannot, what a valid signature does and does not establish, why
 signing a hash rather than a message is the safe construction, why the shared
@@ -206,7 +206,7 @@ the labels alone. Write hex values in lowercase without a `0x` prefix.
 
 ## Troubleshooting and reset
 
-- Nothing in this lab writes state, so there is nothing to reset. Re-running any
+- Nothing in this exercise writes state, so there is nothing to reset. Re-running any
   command reproduces its output exactly.
 - If `verify_results.py` reports `MISSING`, a row label in `RESULTS.md` was
   altered. Restore it from the wording in this repository.

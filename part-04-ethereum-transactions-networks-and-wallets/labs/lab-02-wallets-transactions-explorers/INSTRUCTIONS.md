@@ -13,7 +13,7 @@ external explorer is required.
 - Assets: local test ether, created by the development chain and worth nothing.
 - The local accounts use public development keys. They are suitable only for
   local testing and must never receive assets on a public network.
-- Do not create or commit a real `.env` file for this lab. If a later project
+- Do not create or commit a real `.env` file for this exercise. If a later project
   needs secrets, commit only `.env.example` with placeholder names and keep
   `.env` ignored.
 
@@ -87,7 +87,7 @@ these answers are the evidence that you understood what you saw.
 
 ## Verification
 
-The lab marks itself by rerunning the local chain scenario:
+The exercise marks itself by rerunning the local chain scenario:
 
 ```bash
 npm --workspace @blockchain-handbook/lab-02 test

@@ -43,7 +43,7 @@ asks for a picture instead.
 
 Each lab lives in its own directory and includes:
 
-- `LAB.md` — the student-facing procedure;
+- `INSTRUCTIONS.md` — the student-facing procedure;
 - `RESULTS.md` — a template the student fills in, listing every value to
   record and every question to answer in prose;
 - application and contract source code;
@@ -52,12 +52,12 @@ Each lab lives in its own directory and includes:
 - setup, build, deployment, or reset scripts the procedure needs;
 - `.env.example` when configuration is needed, with names and safe
   placeholders only;
-- a version record in `LAB.md`.
+- a version record in `INSTRUCTIONS.md`.
 
 Generated dependencies, build artefacts, private `.env` files, wallet exports,
 and secret material do not belong in the repository.
 
-## Required structure of `LAB.md`
+## Required structure of `INSTRUCTIONS.md`
 
 1. **Outcome** — what the student will have working at the end.
 2. **Safety and environment** — local or test network, test-only assets, and

@@ -22,6 +22,12 @@ and no test assets.
 
 ## Safety and environment
 
+This is a teaching model of the execute-order-validate flow, **not** Hyperledger
+Fabric. It reproduces endorsement, read and write sets, and the validation that
+rejects a stale transaction, so that the shape of the design is visible. It has
+no membership service, no cryptographic identity, no ordering service, and no
+network. Nothing here should be run as, or mistaken for, a permissioned ledger.
+
 - Network: none. Everything is in memory.
 - Assets: none.
 - The identities here are plain records. Nothing cryptographic is being

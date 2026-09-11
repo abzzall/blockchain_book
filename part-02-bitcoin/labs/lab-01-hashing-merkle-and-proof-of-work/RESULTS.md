@@ -1,4 +1,4 @@
-# Lab 1 results
+# Exercise 1 results
 
 Fill this in as you go. Do not attach images. Every value below is one that
 another machine reproduces exactly, so `npm run verify` can mark this file.

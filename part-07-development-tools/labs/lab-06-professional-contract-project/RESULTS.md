@@ -1,4 +1,4 @@
-# Lab 6 results
+# Exercise 6 results
 
 Fill this in as you go. No images. Every value below is fixed by the source and
 by the pinned tool versions, so `npm run verify` marks this file.
@@ -59,7 +59,7 @@ produced bytecode of the same length, 2199 bytes of which are identical.
 Explain what the differing 43 bytes are and why they differ, and say whether the
 two contracts would behave differently if deployed:**
 
-**3. You deployed to a fresh local node and got the same address the lab
+**3. You deployed to a fresh local node and got the same address the exercise
 predicted. Explain what determines a contract's address, and why that makes a
 local chain markable in a way a public one is not:**
 
@@ -75,7 +75,7 @@ that the other does not do as well:**
 for the difference in terms of what each writes to storage:**
 
 **7. The deployment script reads its key from an environment file that is not in
-the repository, and the lab insists it be a disposable local key. Explain what
+the repository, and the exercise insists it be a disposable local key. Explain what
 would go wrong with a key in the repository even if the repository were private,
 and what makes the local key safe to treat casually:**
 
