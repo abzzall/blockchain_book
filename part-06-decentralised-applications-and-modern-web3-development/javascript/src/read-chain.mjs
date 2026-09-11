@@ -16,8 +16,26 @@ import { JsonRpcProvider, Contract, formatEther as ethersFormatEther } from 'eth
 
 const RPC_URL = process.env.RPC_URL ?? 'https://ethereum-rpc.publicnode.com';
 
+// Every contract read below is taken at one block rather than at whatever the
+// head happens to be when each call lands. Chapter 26 makes the point: a
+// comparison of two quantities is only meaningful if both are read at the same
+// block, and any figure quoted from a chain is meaningless without the block it
+// was read at. This script prints the block it used, so the run is reproducible
+// by anyone who pins the same one.
+//
+// The block defaults to the current head, because reading an older block is an
+// archive request and public endpoints generally refuse it without an account.
+// If you have an archive endpoint, set BLOCK to a number to pin the figures:
+//
+//   RPC_URL=<archive endpoint> BLOCK=25900000 npm run demo
+const BLOCK = process.env.BLOCK ? BigInt(process.env.BLOCK) : undefined;
+const at = BLOCK === undefined ? {} : { blockNumber: BLOCK };
+const ethersAt = BLOCK === undefined ? 'latest' : Number(BLOCK);
+
 // WETH, chosen because it is long-lived, widely known, and an ordinary
-// ERC-20 whose reads are cheap and stable.
+// ERC-20 whose reads are cheap and stable. In canonical WETH9,
+// totalSupply() returns the contract balance; this is not an independent
+// measurement of holder liabilities.
 const WETH = getAddress('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2');
 
 // The ABI of Chapter 14: only the entries actually used are needed.
@@ -37,6 +55,7 @@ function line(label, a, b) {
 
 console.log('Two libraries, one endpoint');
 console.log('-'.repeat(64));
+console.log(`  reading at           ${BLOCK === undefined ? 'the head' : 'block ' + BLOCK}`);
 const [chainId, blockNumber] = await Promise.all([
   publicClient.getChainId(),
   publicClient.getBlockNumber(),
@@ -51,14 +70,14 @@ console.log(`  block number         viem ${blockNumber}, ethers ${ethersBlock}` 
 console.log('\nReading a contract, which needs its ABI');
 console.log('-'.repeat(64));
 const [symbol, decimals, totalSupply] = await Promise.all([
-  publicClient.readContract({ address: WETH, abi: ERC20_ABI, functionName: 'symbol' }),
-  publicClient.readContract({ address: WETH, abi: ERC20_ABI, functionName: 'decimals' }),
-  publicClient.readContract({ address: WETH, abi: ERC20_ABI, functionName: 'totalSupply' }),
+  publicClient.readContract({ address: WETH, abi: ERC20_ABI, functionName: 'symbol', ...at }),
+  publicClient.readContract({ address: WETH, abi: ERC20_ABI, functionName: 'decimals', ...at }),
+  publicClient.readContract({ address: WETH, abi: ERC20_ABI, functionName: 'totalSupply', ...at }),
 ]);
 const weth = new Contract(WETH, ERC20_ABI, provider);
-line('symbol', symbol, await weth.symbol());
-line('decimals', decimals, await weth.decimals());
-const ethersSupply = await weth.totalSupply();
+line('symbol', symbol, await weth.symbol({ blockTag: ethersAt }));
+line('decimals', decimals, await weth.decimals({ blockTag: ethersAt }));
+const ethersSupply = await weth.totalSupply({ blockTag: ethersAt });
 line('totalSupply (wei)', totalSupply, ethersSupply);
 console.log(`  formatted            ${formatUnits(totalSupply, decimals)} ${symbol}`);
 
@@ -67,13 +86,13 @@ console.log('-'.repeat(64));
 console.log(`  typeof totalSupply   ${typeof totalSupply}`);
 console.log(`  Number.MAX_SAFE      ${Number.MAX_SAFE_INTEGER}`);
 console.log(`  one ether in wei     ${10n ** 18n}`);
-console.log('  one ether is about a thousand times larger than Number holds exactly');
+console.log('  one ether is about 111 times larger than Number.MAX_SAFE_INTEGER');
 
 console.log('\nA read is not a transaction');
 console.log('-'.repeat(64));
-const balance = await publicClient.getBalance({ address: WETH });
+const balance = await publicClient.getBalance({ address: WETH, ...at });
 console.log(`  WETH holds           ${formatEther(balance)} ETH`);
-console.log(`  ethers agrees        ${ethersFormatEther(await provider.getBalance(WETH))} ETH`);
+console.log(`  ethers agrees        ${ethersFormatEther(await provider.getBalance(WETH, ethersAt))} ETH`);
 console.log('  no signature, no fee, no block: this was eth_call and eth_getBalance');
 
 console.log('\nWriting would need a signer, which this script does not have');
