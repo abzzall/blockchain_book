@@ -4,12 +4,16 @@
   "private": true,
   "type": "module",
   "description": "Chapter 23 samples: a Hardhat 3 project",
+  "scripts": {
+    "build": "hardhat build",
+    "test": "hardhat test"
+  },
   "engines": {
     "node": ">=24"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.7",
-    "@openzeppelin/contracts": "^5.6.1",
-    "hardhat": "^3.15.0"
+    "@nomicfoundation/hardhat-toolbox-viem": "5.0.7",
+    "@openzeppelin/contracts": "5.6.1",
+    "hardhat": "3.15.0"
   }
 }

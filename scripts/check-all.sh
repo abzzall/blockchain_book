@@ -30,9 +30,20 @@ for sample_directory in "${sample_directories[@]}"; do
 done
 
 if [[ ! -d "${repository_dir}/node_modules" ]]; then
-  echo "Missing node_modules. Run 'npm install' in ${repository_dir}." >&2
+  echo "Missing node_modules. Run 'npm ci' in ${repository_dir}." >&2
   exit 1
 fi
+
+echo "==> Testing the chapter 23, 25, and 27 Hardhat samples"
+(
+  cd "${repository_dir}/part-07-development-tools/hardhat"
+  if [[ ! -d node_modules ]]; then
+    echo "Missing node_modules. Run 'npm ci' in $(pwd)." >&2
+    exit 1
+  fi
+  npm run build
+  npm test
+)
 
 echo "==> Testing and building interactive labs"
 (
