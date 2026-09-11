@@ -43,12 +43,29 @@ contract ConstantProductTest {
         require(charged.quoteAForB(10e18) < free.quoteAForB(10e18), "fee not applied");
     }
 
-    function test_SwappingBackDoesNotReturnTheSameAmount() public {
-        // Even with no fee, a round trip loses to price impact.
+    function test_FeeFreeRoundTripReturnsInputApartFromRounding() public {
         ConstantProduct p = new ConstantProduct(1_000e18, 1_000e18, 0);
-        uint256 got = p.swapAForB(100e18);
-        require(got < 100e18, "a swap of this size cannot be neutral");
+        uint256 gotB = p.swapAForB(100e18);
+        uint256 returnedA = p.swapBForA_forTesting(gotB);
+        require(returnedA <= 100e18, "rounding must not create value");
+        require(100e18 - returnedA <= 2, "price impact is reversible");
     }
+
+    function test_TwoFeesMakeTheRoundTripLossy() public {
+        ConstantProduct p = new ConstantProduct(1_000e18, 1_000e18, 30);
+        uint256 gotB = p.swapAForB(100e18);
+        uint256 returnedA = p.swapBForA_forTesting(gotB);
+        // Independent exact-rational result rounded to eight decimal places.
+        require(returnedA / 1e10 == 9_945_506_684, "unexpected two-fee result");
+    }
+
+    function test_ReportedCurveImpactExcludesFees() public {
+        ConstantProduct free = new ConstantProduct(1_000e18, 1_000e18, 0);
+        ConstantProduct charged = new ConstantProduct(1_000e18, 1_000e18, 30);
+        require(free.priceImpactBps(100e18) == charged.priceImpactBps(100e18), "fee included in curve impact");
+        require(free.priceImpactBps(0) == 0, "zero trade");
+    }
+
 }
 
 contract LendingPoolTest {

@@ -49,13 +49,13 @@ contract ConstantProduct {
         reserveB -= out;
     }
 
-    /// How far the executed price fell short of the spot price, in basis
+    /// How far the fee-free curve price falls short of the spot price, in basis
     /// points. This is price impact: a property of the pool's size relative
     /// to the trade, not a fee and not a failure.
     function priceImpactBps(uint256 amountIn) external view returns (uint256) {
-        uint256 out = quoteAForB(amountIn);
+        uint256 out = (reserveB * amountIn) / (reserveA + amountIn);
         uint256 spotOut = (reserveB * amountIn) / reserveA;
-        if (out >= spotOut) return 0;
+        if (spotOut == 0 || out >= spotOut) return 0;
         return ((spotOut - out) * BPS) / spotOut;
     }
 

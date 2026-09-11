@@ -20,7 +20,7 @@ export const WEI_PER_ETHER = 10n ** 18n;
 
 /**
  * Whether an amount of wei would survive a trip through Number.
- * One ether does not: it is a thousand times too large.
+ * One ether does not: it is about 111 times larger than the safe-integer limit.
  */
 export function survivesAsNumber(wei) {
   return wei <= MAX_SAFE;
