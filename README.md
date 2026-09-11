@@ -138,9 +138,28 @@ The repository follows the parts of the book.
     — reentrancy exploitation, checks-effects-interactions, and guarded repair.
 12. [`lab-12-capstone-certificate-registry`](part-16-capstone-projects/labs/lab-12-capstone-certificate-registry/INSTRUCTIONS.md)
     — capstone implementation scaffold with acceptance tests.
-13. [`lab-19-message-board-events`](part-06-decentralised-applications-and-modern-web3-development/labs/lab-19-message-board-events/INSTRUCTIONS.md)
+13. [`lab-13-digital-signatures`](part-01-blockchain-foundations/labs/lab-13-digital-signatures/INSTRUCTIONS.md)
+    — digital signatures and what a repeated nonce costs.
+14. [`lab-14-applying-a-block`](part-03-ethereum/labs/lab-14-applying-a-block/INSTRUCTIONS.md)
+    — applying a block to account state.
+15. [`lab-15-rollup-batching-and-fraud-proofs`](part-11-scaling-and-cross-chain-systems/labs/lab-15-rollup-batching-and-fraud-proofs/INSTRUCTIONS.md)
+    — rollup batching and fraud proofs, as a teaching model.
+16. [`lab-16-permissioned-channels-and-endorsement`](part-12-enterprise-blockchain/labs/lab-16-permissioned-channels-and-endorsement/INSTRUCTIONS.md)
+    — permissioned channels and endorsement policies, as a teaching model.
+17. [`lab-17-unlinkability-and-clustering`](part-13-privacy-identity-and-transparency/labs/lab-17-unlinkability-and-clustering/INSTRUCTIONS.md)
+    — unlinkability and address clustering on invented data.
+18. [`lab-18-exposure-scoring`](part-15-institutions-and-compliance-concepts/labs/lab-18-exposure-scoring/INSTRUCTIONS.md)
+    — exposure scoring on a synthetic flow graph, as a teaching model.
+19. [`lab-19-message-board-events`](part-06-decentralised-applications-and-modern-web3-development/labs/lab-19-message-board-events/INSTRUCTIONS.md)
     — a page built entirely from logs: filtered historical queries, live
     subscriptions, confirmation, and reorganisation handling.
+
+Implementations 1 to 12 run in reading order alongside the book. The remainder
+sit with the part whose material they exercise. Implementations 1, 13, 14, 15,
+16, 17, and 18 need no chain, no wallet, and no network; 2, 3, 4, 7, 8, 9, 11,
+and 12 run on a local development chain; 5, 10, and 19 add a browser frontend
+connected to a local node. Public testnets and browser wallets are optional
+self-study extensions, never required.
 
 ## Requirements
 
@@ -176,7 +195,7 @@ npm ci
 
 For the required structure of future browser-based implementation exercises, see
 [`AUTHORING_STANDARD.md`](AUTHORING_STANDARD.md). A reusable guide is
-available at [`labs/INSTRUCTIONS_TEMPLATE.md`](labs/INSTRUCTIONS_TEMPLATE.md).
+available at [`INSTRUCTIONS_TEMPLATE.md`](INSTRUCTIONS_TEMPLATE.md).
 
 ## License and attribution
 
