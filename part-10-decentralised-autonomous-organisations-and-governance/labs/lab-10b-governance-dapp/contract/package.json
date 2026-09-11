@@ -1,0 +1,23 @@
+{
+  "name": "@blockchain-handbook/lab-10b-contract",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "hardhat build",
+    "test": "hardhat test nodejs",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.ts --network localhost"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-keystore": "3.0.13",
+    "@nomicfoundation/hardhat-network-helpers": "3.0.11",
+    "@nomicfoundation/hardhat-node-test-runner": "3.1.0",
+    "@nomicfoundation/hardhat-viem": "3.0.9",
+    "@nomicfoundation/hardhat-viem-assertions": "3.1.2",
+    "@types/node": "26.4.1",
+    "hardhat": "3.15.0",
+    "typescript": "7.0.2",
+    "viem": "2.56.3"
+  }
+}

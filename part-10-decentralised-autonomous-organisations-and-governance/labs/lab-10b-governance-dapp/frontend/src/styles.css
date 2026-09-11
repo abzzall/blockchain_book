@@ -1,0 +1,134 @@
+:root {
+  --ink: #14171a;
+  --muted: #5b6470;
+  --line: #d8dde3;
+  --panel: #f6f8fa;
+  --accent: #1f4b8e;
+  --warn: #8a5a00;
+  --bad: #a11b1b;
+  --good: #1a6b3c;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main { max-width: 60rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+header .eyebrow {
+  margin: 0; text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 0.72rem; color: var(--muted);
+}
+header h1 { margin: 0.25rem 0 0.5rem; font-size: 2rem; }
+header .lede { margin: 0 0 1.5rem; color: var(--muted); max-width: 46rem; }
+
+h2 { font-size: 1.1rem; margin: 0 0 0.5rem; }
+
+section { margin-bottom: 1.75rem; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+button {
+  font: inherit;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.quiet { background: #fff; color: var(--accent); }
+
+input {
+  font: inherit;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  min-width: 12rem;
+}
+
+form { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+.notice {
+  background: #fff8e6; border: 1px solid #e6d29a; color: var(--warn);
+  padding: 0.7rem 0.9rem; border-radius: 6px;
+}
+
+.wallet { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+.bar {
+  display: grid; gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  background: var(--line); border: 1px solid var(--line); border-radius: 6px;
+  overflow: hidden;
+}
+.bar div { background: #fff; padding: 0.6rem 0.75rem; }
+.bar span { display: block; font-size: 0.72rem; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--muted); }
+.bar strong { font-size: 1.05rem; }
+
+.delegation .current { color: var(--muted); }
+
+.proposal {
+  border: 1px solid var(--line); border-radius: 8px;
+  padding: 1rem 1.1rem; margin-bottom: 1rem;
+}
+.proposal header { display: flex; gap: 0.5rem; align-items: center; }
+.proposal h3 { margin: 0.5rem 0 0.75rem; font-size: 1.05rem; }
+.badge { font-size: 0.75rem; color: var(--muted); }
+.state {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.6rem;
+}
+.state-active { border-color: var(--accent); color: var(--accent); }
+.state-succeeded, .state-executed { border-color: var(--good); color: var(--good); }
+.state-defeated { border-color: var(--bad); color: var(--bad); }
+.state-queued { border-color: var(--warn); color: var(--warn); }
+
+.tally { display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 0 0 0.75rem; }
+.tally dt { font-size: 0.72rem; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--muted); }
+.tally dd { margin: 0; font-weight: 600; }
+
+.payload { border: 1px solid var(--line); border-radius: 6px; padding: 0.6rem 0.75rem; }
+.payload summary { cursor: pointer; font-weight: 600; }
+.payload p { margin: 0.6rem 0 0.2rem; font-size: 0.72rem;
+             text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.payload code { display: block; padding: 0.4rem 0.5rem; }
+.payload .calldata { word-break: break-all; }
+.payload .warn {
+  text-transform: none; letter-spacing: 0; font-size: 0.85rem;
+  color: var(--warn); margin-top: 0.7rem;
+}
+
+.proposal footer { display: flex; flex-wrap: wrap; gap: 0.5rem;
+                   align-items: center; margin-top: 0.85rem; }
+
+.note { font-size: 0.85rem; color: var(--muted); }
+.error { color: var(--bad); font-size: 0.85rem; }
+.success { color: var(--good); }
+
+.receipt code { display: block; padding: 0.4rem 0.5rem; word-break: break-all; }
+
+aside {
+  border-left: 3px solid var(--warn);
+  background: var(--panel);
+  padding: 0.8rem 1rem;
+  color: var(--muted);
+}
+aside strong { color: var(--ink); }
