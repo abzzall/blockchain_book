@@ -32,9 +32,13 @@ Install the dependencies and run the repository-wide checks from the repository
 root:
 
 ```bash
-npm install
+npm ci
 ./scripts/check-all.sh
 ```
+
+`npm ci` installs exactly the versions recorded in `package-lock.json`. Use it
+rather than `npm install`, which may resolve newer compatible versions and so
+reproduce a different toolchain from the one each guide records.
 
 Individual chapter examples and implementation exercises may have narrower prerequisites.
 Each part directory documents its own commands.
@@ -59,7 +63,7 @@ describes *the result that must become true* rather than the control to click.
 ## No Exercise Requires A Screenshot
 
 This is a standing rule, set out in full in
-[`LAB_AUTHORING_STANDARD.md`](LAB_AUTHORING_STANDARD.md). Evidence is a recorded
+[`AUTHORING_STANDARD.md`](AUTHORING_STANDARD.md). Evidence is a recorded
 value or a written explanation, never an image, because a screenshot cannot be
 re-checked by anyone, dates as fast as the interface it pictures, and invites
 accidental disclosure of balances and account names.
@@ -110,45 +114,74 @@ The repository follows the parts of the book.
 
 ## Implementation Examples
 
-1. [`lab-01-hashing-merkle-and-proof-of-work`](part-02-bitcoin/labs/lab-01-hashing-merkle-and-proof-of-work/LAB.md)
+1. [`lab-01-hashing-merkle-and-proof-of-work`](part-02-bitcoin/labs/lab-01-hashing-merkle-and-proof-of-work/INSTRUCTIONS.md)
    — hashing, Merkle proofs, and proof-of-work arithmetic.
-2. [`lab-02-wallets-transactions-explorers`](part-04-ethereum-transactions-networks-and-wallets/labs/lab-02-wallets-transactions-explorers/LAB.md)
+2. [`lab-02-wallets-transactions-explorers`](part-04-ethereum-transactions-networks-and-wallets/labs/lab-02-wallets-transactions-explorers/INSTRUCTIONS.md)
    — local transaction evidence and receipt inspection.
-3. [`lab-03-first-smart-contract`](part-05-smart-contracts-and-solidity/labs/lab-03-first-smart-contract/LAB.md)
+3. [`lab-03-first-smart-contract`](part-05-smart-contracts-and-solidity/labs/lab-03-first-smart-contract/INSTRUCTIONS.md)
    — first Solidity contract, Hardhat tests, deployment, and Remix inspection.
-4. [`lab-04-payable-crowdfund`](part-05-smart-contracts-and-solidity/labs/lab-04-payable-crowdfund/LAB.md)
+4. [`lab-04-payable-crowdfund`](part-05-smart-contracts-and-solidity/labs/lab-04-payable-crowdfund/INSTRUCTIONS.md)
    — payable functions, balances, withdrawals, and local-chain evidence.
-5. [`lab-05-student-registry-dapp`](part-06-decentralised-applications-and-modern-web3-development/labs/lab-05-student-registry-dapp/LAB.md)
+5. [`lab-05-student-registry-dapp`](part-06-decentralised-applications-and-modern-web3-development/labs/lab-05-student-registry-dapp/INSTRUCTIONS.md)
    — React, wagmi, viem, ABI use, and wallet-mediated contract interaction.
-6. [`lab-06-professional-contract-project`](part-07-development-tools/labs/lab-06-professional-contract-project/LAB.md)
+6. [`lab-06-professional-contract-project`](part-07-development-tools/labs/lab-06-professional-contract-project/INSTRUCTIONS.md)
    — Hardhat, Foundry, pinned builds, deployment scripts, and secret hygiene.
-7. [`lab-07-erc20-token`](part-08-tokens-and-digital-assets/labs/lab-07-erc20-token/LAB.md)
+7. [`lab-07-erc20-token`](part-08-tokens-and-digital-assets/labs/lab-07-erc20-token/INSTRUCTIONS.md)
    — OpenZeppelin ERC-20 transfers, allowances, minting, and burning.
-8. [`lab-08-nft-minting`](part-08-tokens-and-digital-assets/labs/lab-08-nft-minting/LAB.md)
+8. [`lab-08-nft-minting`](part-08-tokens-and-digital-assets/labs/lab-08-nft-minting/INSTRUCTIONS.md)
    — ERC-721 minting, metadata, token ownership, and interface detection.
-9. [`lab-09-constant-product-amm`](part-09-decentralised-finance/labs/lab-09-constant-product-amm/LAB.md)
+9. [`lab-09-constant-product-amm`](part-09-decentralised-finance/labs/lab-09-constant-product-amm/INSTRUCTIONS.md)
    — automated-market-maker swaps, fees, invariant growth, and slippage.
-10. [`lab-10-voting-dapp`](part-10-decentralised-autonomous-organisations-and-governance/labs/lab-10-voting-dapp/LAB.md)
+10. [`lab-10-voting-dapp`](part-10-decentralised-autonomous-organisations-and-governance/labs/lab-10-voting-dapp/INSTRUCTIONS.md)
     — eligibility-controlled election contract and React voting frontend.
-11. [`lab-11-reentrancy-exploit-and-fix`](part-14-security-fraud-and-user-safety/labs/lab-11-reentrancy-exploit-and-fix/LAB.md)
+11. [`lab-11-reentrancy-exploit-and-fix`](part-14-security-fraud-and-user-safety/labs/lab-11-reentrancy-exploit-and-fix/INSTRUCTIONS.md)
     — reentrancy exploitation, checks-effects-interactions, and guarded repair.
-12. [`lab-12-capstone-certificate-registry`](part-16-capstone-projects/labs/lab-12-capstone-certificate-registry/LAB.md)
+12. [`lab-12-capstone-certificate-registry`](part-16-capstone-projects/labs/lab-12-capstone-certificate-registry/INSTRUCTIONS.md)
     — capstone implementation scaffold with acceptance tests.
+13. [`lab-19-message-board-events`](part-06-decentralised-applications-and-modern-web3-development/labs/lab-19-message-board-events/INSTRUCTIONS.md)
+    — a page built entirely from logs: filtered historical queries, live
+    subscriptions, confirmation, and reorganisation handling.
 
 ## Requirements
 
-- Python 3.12 or later for the foundational samples.
-- Node.js 24 and npm 11 for the Hardhat and React labs.
+- Python 3.12 or later for the foundational samples. They import only the
+  standard library, so nothing needs to be installed with `pip`.
+- Node.js 24 and npm 11 for the Hardhat and React labs. The exact version this
+  repository was verified against is recorded in `.nvmrc`.
 - Foundry 1.8.1 for the professional project workflow. Install it only from the official Foundry
   instructions and ensure `forge` is on `PATH`.
+
+### Verified environment
+
+Every check in `scripts/check-all.sh` was last run to completion on the
+configuration below. Other platforms are expected to work but have not been
+verified; on Windows, use WSL2, because the scripts assume a POSIX shell.
+
+| Component | Verified version |
+|---|---|
+| Verification date | 2026-09-12 |
+| Operating system | Linux x86-64 |
+| Python | 3.12.3 |
+| Node.js | 24.15.0 |
+| npm | 11.12.1 |
+| Foundry (`forge`) | 1.8.1 |
+| Solidity (`solc`) | 0.8.36 |
 
 Run all current command-line checks from this repository:
 
 ```bash
-npm install
+npm ci
 ./scripts/check-all.sh
 ```
 
 For the required structure of future browser-based implementation exercises, see
-[`LAB_AUTHORING_STANDARD.md`](LAB_AUTHORING_STANDARD.md). A reusable guide is
-available at [`labs/LAB_TEMPLATE.md`](labs/LAB_TEMPLATE.md).
+[`AUTHORING_STANDARD.md`](AUTHORING_STANDARD.md). A reusable guide is
+available at [`labs/INSTRUCTIONS_TEMPLATE.md`](labs/INSTRUCTIONS_TEMPLATE.md).
+
+## License and attribution
+
+The companion code and its documentation are licensed under the [MIT License](LICENSE).
+Retain the copyright notice, source attribution to
+<https://github.com/abzzall/blockchain_book>, and permission notice in copies or
+substantial portions of the software. Dependencies retain their own licenses.
+This grant covers this companion repository; it does not license the book manuscript.
