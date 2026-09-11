@@ -11,7 +11,7 @@ practical rather than stylistic:
 
 - A screenshot proves that a screen looked a certain way on one machine. It
   cannot be re-checked by anyone, including the student.
-- Interfaces change. A lab whose evidence is a picture of a wallet dates as
+- Interfaces change. A exercise whose evidence is a picture of a wallet dates as
   fast as the wallet does, and Chapter 19 already showed how fast that is.
 - Images invite accidental disclosure of balances, addresses, and account
   names that have nothing to do with the exercise.
@@ -36,12 +36,12 @@ In order of preference:
    **describes it in their own words**, in plain prose. This is the part a
    screenshot never actually demonstrated understanding of anyway.
 
-A lab asks for the third kind wherever the first two are impossible. It never
+A exercise asks for the third kind wherever the first two are impossible. It never
 asks for a picture instead.
 
-## Required lab files
+## Required exercise files
 
-Each lab lives in its own directory and includes:
+Each exercise lives in its own directory and includes:
 
 - `INSTRUCTIONS.md` — the student-facing procedure;
 - `RESULTS.md` — a template the student fills in, listing every value to
@@ -62,7 +62,7 @@ and secret material do not belong in the repository.
 1. **Outcome** — what the student will have working at the end.
 2. **Safety and environment** — local or test network, test-only assets, and
    the dedicated-account rule.
-3. **Verified versions** — the exact environment used to validate the lab, with
+3. **Verified versions** — the exact environment used to validate the exercise, with
    a date.
 4. **Files supplied.**
 5. **Command-line work** — everything that can be automated, with the commands.
@@ -72,6 +72,11 @@ and secret material do not belong in the repository.
 8. **What to explain** — the questions answered in prose.
 9. **Verification** — how the student, or a marker, checks the recorded values.
 10. **Troubleshooting and reset.**
+
+This list is the specification. There is no separate skeleton to copy, because a
+template kept alongside twenty working exercises drifts out of step with them
+and nothing fails when it does. Start a new exercise by copying the existing one
+whose shape is closest — it is current by construction, and its tests prove it.
 
 ## Writing the interactive steps
 
@@ -90,7 +95,7 @@ model: where the book and the screen disagree, the screen is right.
 
 ## Verification without images
 
-Every lab must be markable without seeing the student's machine. Achieve this
+Every exercise must be markable without seeing the student's machine. Achieve this
 by ensuring each recorded value is one of:
 
 - **checkable on a public network** — a transaction hash, address, or block
@@ -105,17 +110,17 @@ Where a value is none of these, it belongs in the "explain" section instead.
 
 ## Safety
 
-Unchanged and non-negotiable. Labs use local chains or test networks and
+Unchanged and non-negotiable. Exercises use local chains or test networks and
 test-only assets; they use a dedicated educational account; they never ask for
 a seed phrase or private key; they never instruct mainnet activity with real
-value. A lab that records a transaction hash records a **testnet** hash.
+value. A exercise that records a transaction hash records a **testnet** hash.
 
 Prefer a deterministic local chain unless public-network behaviour is itself
 the learning outcome.
 
 ## Project validation responsibilities
 
-Before a lab is handed to a student, the project must:
+Before a exercise is handed to a student, the project must:
 
 - consult current official documentation for every version-sensitive tool;
 - pin dependencies, and prefer LTS releases per `CONTEXT/code-validation.md`;
@@ -128,5 +133,5 @@ Before a lab is handed to a student, the project must:
 
 ## Publication readiness
 
-The companion tree remains independently publishable. A lab is ready when a
+The companion tree remains independently publishable. A exercise is ready when a
 clean checkout can follow its commands and the automated checks pass.

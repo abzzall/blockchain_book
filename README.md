@@ -194,8 +194,9 @@ npm ci
 ```
 
 For the required structure of future browser-based implementation exercises, see
-[`AUTHORING_STANDARD.md`](AUTHORING_STANDARD.md). A reusable guide is
-available at [`INSTRUCTIONS_TEMPLATE.md`](INSTRUCTIONS_TEMPLATE.md).
+[`AUTHORING_STANDARD.md`](AUTHORING_STANDARD.md), which specifies the sections an
+`INSTRUCTIONS.md` must carry and in what order. To add an exercise, copy the
+existing one closest in shape rather than working from a skeleton.
 
 ## License and attribution
 
