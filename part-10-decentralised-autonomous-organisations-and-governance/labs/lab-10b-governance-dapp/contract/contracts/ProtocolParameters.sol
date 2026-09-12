@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice Something for governance to actually govern. Only the governor may
 /// change the fee, so the only route to a new value is a proposal that passes,

@@ -9,6 +9,18 @@ if [[ -x "${HOME}/.foundry/bin/forge" ]]; then
   export PATH="${HOME}/.foundry/bin:${PATH}"
 fi
 
+# Standalone npm projects: these are deliberately not root workspaces, because
+# each documents its own "npm ci" in its chapter README and each pins its own
+# package-lock.json. Install them here so that a clean checkout needs nothing
+# beyond the two commands the README quick start gives.
+install_standalone() {
+  local project_dir="${repository_dir}/$1"
+  if [[ ! -d "${project_dir}/node_modules" ]]; then
+    echo "==> Installing ${1}"
+    (cd "${project_dir}" && npm ci)
+  fi
+}
+
 sample_directories=(
   part-01-blockchain-foundations/cryptography
   part-01-blockchain-foundations/consensus
@@ -34,13 +46,17 @@ if [[ ! -d "${repository_dir}/node_modules" ]]; then
   exit 1
 fi
 
+echo "==> Testing the chapter 21 JavaScript samples"
+install_standalone part-06-decentralised-applications-and-modern-web3-development/javascript
+(
+  cd "${repository_dir}/part-06-decentralised-applications-and-modern-web3-development/javascript"
+  npm test
+)
+
 echo "==> Testing the chapter 23, 25, and 27 Hardhat samples"
+install_standalone part-07-development-tools/hardhat
 (
   cd "${repository_dir}/part-07-development-tools/hardhat"
-  if [[ ! -d node_modules ]]; then
-    echo "Missing node_modules. Run 'npm ci' in $(pwd)." >&2
-    exit 1
-  fi
   npm run build
   npm test
 )

@@ -14,7 +14,7 @@ npx hardhat test --gas-stats
 ```
 
 Verified on 2026-09-06 with **Hardhat 3.15.0**, **Node 24.15.0** (the current
-Active LTS line, "Krypton"), **solc 0.8.36**, and
+Active LTS line, "Krypton"), **solc 0.8.37**, and
 **@nomicfoundation/hardhat-toolbox-viem 5.0.7**. All versions are pinned
 exactly in `package.json` and `hardhat.config.js`.
 

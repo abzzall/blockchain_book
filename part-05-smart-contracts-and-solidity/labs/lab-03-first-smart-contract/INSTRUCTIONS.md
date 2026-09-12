@@ -24,7 +24,7 @@ where you see the same contract through an interface.
 | Verification date | 2026-09-07 |
 | Node.js | 24.15.0 |
 | Hardhat | 3.15.0 |
-| Solidity | 0.8.36 |
+| Solidity | 0.8.37 |
 | viem | 2.56.3 |
 
 ## Files supplied
@@ -89,7 +89,7 @@ authority.
 1. Open the official Remix IDE at `https://remix.ethereum.org`.
 2. Create a file named `StudentRegistry.sol` and paste the complete contract
    from `contracts/StudentRegistry.sol`.
-3. Compile it with Solidity 0.8.36. Get to a clean compile before continuing;
+3. Compile it with Solidity 0.8.37. Get to a clean compile before continuing;
    fix any error the compiler reports rather than working around it.
 4. Choose an execution environment that is a local simulation — Remix's own
    in-browser VM — and confirm you have not selected an injected wallet.

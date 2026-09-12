@@ -6,7 +6,7 @@ import { defineConfig } from "hardhat/config";
 export default defineConfig({
   plugins: [hardhatKeystore, hardhatNodeTestRunner, hardhatViemAssertions],
   solidity: {
-    version: "0.8.36",
+    version: "0.8.37",
     settings: { optimizer: { enabled: true, runs: 200 } },
   },
   paths: {

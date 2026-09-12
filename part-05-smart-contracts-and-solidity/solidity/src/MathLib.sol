@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice A library holds reusable functions and no state of its own. With
 ///         only internal functions it is inlined into the calling contract

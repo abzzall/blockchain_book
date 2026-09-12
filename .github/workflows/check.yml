@@ -1,0 +1,87 @@
+name: Companion code checks
+
+# Runs the same single command the README documents, from a clean checkout, so
+# that "all companion-code checks passed" is an auditable claim rather than a
+# self-reported one. Pin the prerequisite versions here to the ones recorded in
+# the "Verified environment" table in README.md, and update both together.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-all:
+    name: Clean-checkout validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: '1.8.1'
+
+      - name: Record the environment under test
+        run: |
+          {
+            echo '### Environment under test'
+            echo
+            echo '| Component | Version |'
+            echo '| --- | --- |'
+            echo "| Commit | \`${GITHUB_SHA}\` |"
+            echo "| Runner | $(. /etc/os-release && echo "${PRETTY_NAME}") $(uname -m) |"
+            echo "| Python | $(python3 --version | cut -d' ' -f2) |"
+            echo "| Node.js | $(node --version) |"
+            echo "| npm | $(npm --version) |"
+            echo "| Foundry | $(forge --version | head -1) |"
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+      # These are the two commands the README quick start gives. Nothing else
+      # runs here, so CI passing means those two commands genuinely work from a
+      # clean checkout with only the documented prerequisites installed.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run all companion-code checks
+        run: ./scripts/check-all.sh | tee check-all-output.txt
+
+      - name: Confirm the checks actually reported success
+        run: |
+          # A zero exit is not on its own proof: guard against the script being
+          # changed to exit early, or a suite silently reporting nothing.
+          grep -q 'All companion-code checks passed.' check-all-output.txt
+          if grep -nE 'failing|FAILED' check-all-output.txt \
+             | grep -vE '✔|✓|a transaction failing the policy'; then
+            echo 'Found a reported failure in the check output.' >&2
+            exit 1
+          fi
+
+      - name: Retain the validation record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-all-output-${{ github.sha }}
+          path: check-all-output.txt
+          retention-days: 90

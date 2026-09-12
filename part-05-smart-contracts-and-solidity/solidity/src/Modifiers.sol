@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice A modifier wraps a function body. The underscore marks where the
 ///         body is spliced in, so code before it runs first and code after

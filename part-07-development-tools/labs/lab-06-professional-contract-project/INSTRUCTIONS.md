@@ -26,7 +26,7 @@ correct builds of the same source are not byte-for-byte identical.
 | Node.js | 24.15.0 |
 | Hardhat | 3.15.0 |
 | Foundry (forge, anvil, cast) | 1.8.1 |
-| Solidity | 0.8.36 |
+| Solidity | 0.8.37 |
 
 ## Files supplied
 

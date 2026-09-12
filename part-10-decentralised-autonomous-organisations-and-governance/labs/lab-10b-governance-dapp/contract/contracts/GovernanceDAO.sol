@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @title A teaching governance system: voting power, proposals, quorum, execution.
 /// @notice One contract holds the token, the delegation, the governor and the

@@ -28,8 +28,11 @@ build artefacts.
 
 ## Quick start
 
-Install the dependencies and run the repository-wide checks from the repository
-root:
+These two commands are the whole repository-wide check. Install the
+prerequisites under [Requirements](#requirements) first --- Python 3.12+,
+Node.js 24 with npm 11, and Foundry with `forge` on `PATH`. Nothing else is
+needed: the check script installs the npm dependencies of the standalone
+chapter samples itself.
 
 ```bash
 npm ci
@@ -68,9 +71,20 @@ value or a written explanation, never an image, because a screenshot cannot be
 re-checked by anyone, dates as fast as the interface it pictures, and invites
 accidental disclosure of balances and account names.
 
-Every implementation exercise is markable without seeing the student's machine. Each supplies a
-`scripts/verify-results.mjs` that reads the value tables out of the student's
-`RESULTS.md`, recomputes each one, and reports it as correct, wrong, or blank.
+Every implementation exercise is markable without seeing the student's machine.
+Most exercises supply a marking script in the language of the exercise --- a
+`scripts/verify-results.mjs` for the JavaScript and Solidity exercises, a
+`verify_results.py` for the Python ones (`lab-13`, `lab-14`, `lab-17`,
+`lab-18`). It reads the value tables out of the student's `RESULTS.md`,
+recomputes each one, and reports it as correct, wrong, or blank.
+
+Four exercises are marked differently because a value table is the wrong
+instrument for them. `lab-02` remarks itself by rerunning the local chain
+scenario with `npm run walkthrough`, which reproduces the same hashes and
+addresses. The browser dApp exercises `lab-10`, `lab-10b`, and `lab-19` are
+marked by their own contract and frontend test suites together with the written
+explanations their `RESULTS.md` asks for, because what they teach is observed
+behaviour rather than a table of deterministic values.
 The values are markable because they are deterministic: selectors and event
 topics follow from a signature alone, and a fresh local chain reproduces the
 same contract addresses and the same gas figures for everyone. Where a value is
@@ -105,11 +119,11 @@ The repository follows the parts of the book.
 | Part 8 | `part-08-tokens-and-digital-assets/` | token and NFT implementation examples |
 | Part 9 | `part-09-decentralised-finance/` | decentralised finance examples and AMM implementation |
 | Part 10 | `part-10-decentralised-autonomous-organisations-and-governance/` | governance examples and voting dApp implementation |
-| Part 11 | `part-11-scaling-and-cross-chain-systems/` | no required executable code yet |
-| Part 12 | `part-12-enterprise-blockchain/` | no required executable code yet |
+| Part 11 | `part-11-scaling-and-cross-chain-systems/` | rollup batching and fraud-proof implementation |
+| Part 12 | `part-12-enterprise-blockchain/` | permissioned channel and endorsement implementation |
 | Part 13 | `part-13-privacy-identity-and-transparency/` | privacy examples |
 | Part 14 | `part-14-security-fraud-and-user-safety/` | security examples and re-entrancy implementation |
-| Part 15 | `part-15-institutions-and-compliance-concepts/` | no required executable code yet |
+| Part 15 | `part-15-institutions-and-compliance-concepts/` | compliance examples and exposure-scoring implementation |
 | Part 16 | `part-16-capstone-projects/` | capstone certificate-registry project |
 
 ## Implementation Examples
@@ -153,13 +167,31 @@ The repository follows the parts of the book.
 19. [`lab-19-message-board-events`](part-06-decentralised-applications-and-modern-web3-development/labs/lab-19-message-board-events/INSTRUCTIONS.md)
     — a page built entirely from logs: filtered historical queries, live
     subscriptions, confirmation, and reorganisation handling.
+20. [`lab-10b-governance-dapp`](part-10-decentralised-autonomous-organisations-and-governance/labs/lab-10b-governance-dapp/INSTRUCTIONS.md)
+    — token governance end to end: delegation, checkpointed voting power,
+    proposal snapshots, quorum, timelock, and execution.
 
 Implementations 1 to 12 run in reading order alongside the book. The remainder
 sit with the part whose material they exercise. Implementations 1, 13, 14, 15,
 16, 17, and 18 need no chain, no wallet, and no network; 2, 3, 4, 7, 8, 9, 11,
-and 12 run on a local development chain; 5, 10, and 19 add a browser frontend
-connected to a local node. Public testnets and browser wallets are optional
-self-study extensions, never required.
+and 12 run on a local development chain; 5, 10, 19, and 20 add a browser
+frontend connected to a local node. Public testnets and browser wallets are
+optional self-study extensions, never required.
+
+`lab-10` and `lab-10b` are deliberately not redundant: the first teaches an
+eligibility-controlled election, the second teaches token governance, where
+voting power is delegated, snapshotted, and executed through a timelock.
+
+### Standalone chapter samples
+
+Two directories are runnable chapter samples rather than numbered exercises.
+Each pins its own `package-lock.json`, documents its own `npm ci` in its README,
+and is covered by `scripts/check-all.sh`:
+
+- `part-06-decentralised-applications-and-modern-web3-development/javascript/`
+  — the chapter 21 ethers and viem samples.
+- `part-07-development-tools/hardhat/` — the chapter 23, 25, and 27 Hardhat
+  project.
 
 ## Requirements
 
@@ -170,21 +202,52 @@ self-study extensions, never required.
 - Foundry 1.8.1 for the professional project workflow. Install it only from the official Foundry
   instructions and ensure `forge` is on `PATH`.
 
+### Compiler version policy
+
+The pinned Solidity compiler is **0.8.37**. Every Hardhat and Foundry project in
+this repository sets that exact version in its build configuration, so the same
+source produces the same bytecode for every reader. A `pragma` is only a version
+*check* --- it never selects a compiler --- so the build configuration is what
+makes a project reproducible, and the pragma is what stops a file being compiled
+by something it was not written for.
+
+Two deliberate exceptions exist, and neither is an oversight:
+
+- `part-05-.../chapter-19-remix-ide/RemixStorage.sol` declares a wide
+  `pragma solidity ^0.8.24`. It is opened in Remix, which compiles with whichever
+  release the browser offers that day --- 0.8.34 when chapter 19 was written. A
+  wide range keeps it compiling as that default moves.
+- Contracts using `^0.8.37` rather than an exact pragma still build against the
+  pinned 0.8.37, because the toolchain, not the pragma, chooses the compiler.
+
+**A newer compiler release is not adopted automatically.** Solidity 0.8.37 was
+adopted through a controlled migration and a complete repository-wide check. A
+future release must likewise be pinned, tested with `scripts/check-all.sh`, and
+recorded below before it becomes the book's target.
+
 ### Verified environment
 
 Every check in `scripts/check-all.sh` was last run to completion on the
-configuration below. Other platforms are expected to work but have not been
-verified; on Windows, use WSL2, because the scripts assume a POSIX shell.
+configuration below, from a checkout containing only the files tracked by git.
+The record of that run, and the command to reproduce it, are in
+[`validation/clean-checkout.md`](validation/clean-checkout.md). The same two
+commands run in CI on every push --- see
+[`.github/workflows/check.yml`](.github/workflows/check.yml) --- which retains
+the output so the claim can be audited rather than taken on trust.
+
+Other platforms are expected to work but have not been verified; on Windows, use
+WSL2, because the scripts assume a POSIX shell.
 
 | Component | Verified version |
 |---|---|
 | Verification date | 2026-09-12 |
+| Tests passing | 583 (0 failing) |
 | Operating system | Linux x86-64 |
 | Python | 3.12.3 |
 | Node.js | 24.15.0 |
 | npm | 11.12.1 |
 | Foundry (`forge`) | 1.8.1 |
-| Solidity (`solc`) | 0.8.36 |
+| Solidity (`solc`) | 0.8.37 |
 
 Run all current command-line checks from this repository:
 

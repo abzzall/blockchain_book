@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice The classic reentrancy bug, in full, so it can be exploited in a
 ///         test rather than described. Chapter 42 explains why it works.

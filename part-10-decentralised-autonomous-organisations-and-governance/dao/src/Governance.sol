@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice Token-weighted governance with delegation, quorum and a timelock,
 ///         reduced to the parts that decide outcomes. Chapter 36 discusses

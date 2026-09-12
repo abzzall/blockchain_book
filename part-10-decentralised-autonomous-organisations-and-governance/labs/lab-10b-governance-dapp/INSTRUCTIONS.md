@@ -26,7 +26,7 @@ what a voter has actually verified when they vote on a proposal in an interface.
 | Verification date | 2026-09-09 |
 | Node.js | 24.15.0 |
 | Hardhat | 3.15.0 |
-| Solidity | 0.8.36 |
+| Solidity | 0.8.37 |
 | React | 19.2.8 |
 | wagmi | 3.7.7 |
 | viem | 2.56.3 |

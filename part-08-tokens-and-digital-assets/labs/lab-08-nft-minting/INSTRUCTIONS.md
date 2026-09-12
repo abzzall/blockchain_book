@@ -24,7 +24,7 @@ of these tokens does and does not prove.
 | Verification date | 2026-09-07 |
 | Node.js | 24.15.0 |
 | Hardhat | 3.15.0 |
-| Solidity | 0.8.36 |
+| Solidity | 0.8.37 |
 | OpenZeppelin Contracts | 5.6.1 |
 | viem | 2.56.3 |
 

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// An interface declares what can be called and supplies no implementation.
 /// It cannot hold state and cannot be deployed.

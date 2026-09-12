@@ -14,7 +14,7 @@ eth_getCode and is frozen, and the address it lives at was already verified
 in the Chapter 9 sample by deriving it with the CREATE formula.
 
 Sources:
-  https://docs.soliditylang.org/en/v0.8.36/abi-spec.html
+  https://docs.soliditylang.org/en/v0.8.37/abi-spec.html
   https://github.com/ethereum/execution-specs  (opcode values, Osaka fork)
   EIP-1014 https://eips.ethereum.org/EIPS/eip-1014  (CREATE2)
 """

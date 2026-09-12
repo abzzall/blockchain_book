@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice Since Solidity 0.8.0 arithmetic reverts on overflow and underflow
 ///         by default. Before that it wrapped silently, which is why older

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice A constant-product automated market maker, reduced to the pricing.
 ///         Token transfers are omitted so the arithmetic is visible; a real

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice A commitment: publish a hash now, reveal the value later, and
 ///         anyone can check the two match. This is the smallest useful

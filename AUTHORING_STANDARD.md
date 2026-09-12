@@ -48,7 +48,12 @@ Each exercise lives in its own directory and includes:
   record and every question to answer in prose;
 - application and contract source code;
 - automated tests for everything checkable without a browser;
-- a verification script where recorded values can be checked mechanically;
+- a verification script where recorded values can be checked mechanically,
+  named for the language of the exercise --- `scripts/verify-results.mjs` for the
+  JavaScript and Solidity exercises, `verify_results.py` for the Python ones.
+  Where a value table is the wrong instrument --- a browser dApp marked by its
+  own test suites, or an exercise that remarks itself by rerunning its scenario
+  --- say so in `INSTRUCTIONS.md` and omit the script;
 - setup, build, deployment, or reset scripts the procedure needs;
 - `.env.example` when configuration is needed, with names and safe
   placeholders only;

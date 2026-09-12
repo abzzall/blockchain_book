@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @title A contract small enough to read in full.
 /// @notice Demonstrates state variables, visibility, a constructor, and the

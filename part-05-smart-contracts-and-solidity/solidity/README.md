@@ -14,7 +14,7 @@ forge build
 forge test
 ```
 
-Verified on 2026-09-08 with **Foundry 1.8.1** and **solc 0.8.36**, both pinned
+Verified on 2026-09-08 with **Foundry 1.8.1** and **solc 0.8.37**, both pinned
 in `foundry.toml`. All **71 tests pass**. No network, no node, no wallet, no
 key, and no funds: `forge test` runs the contracts in a local EVM.
 

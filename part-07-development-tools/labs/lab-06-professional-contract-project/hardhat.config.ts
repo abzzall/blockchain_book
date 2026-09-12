@@ -6,7 +6,7 @@ import { defineConfig } from "hardhat/config";
 
 export default defineConfig({
   plugins: [hardhatKeystore, hardhatNetworkHelpers, hardhatNodeTestRunner, hardhatViemAssertions],
-  solidity: { version: "0.8.36", settings: { optimizer: { enabled: true, runs: 200 } } },
+  solidity: { version: "0.8.37", settings: { optimizer: { enabled: true, runs: 200 } } },
   paths: { sources: "./src", tests: "./test/hardhat", cache: "./cache", artifacts: "./artifacts" },
   networks: {
     localhost: { type: "http", chainType: "l1", url: "http://127.0.0.1:8545" },

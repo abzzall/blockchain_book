@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice `constant` and `immutable` both avoid storage: their values live
 ///         in the contract's code. They differ in when the value is fixed.

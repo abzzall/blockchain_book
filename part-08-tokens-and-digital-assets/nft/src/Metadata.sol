@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 /// @notice The two ways a token can say what it represents, reduced to the
 ///         part that matters. Neither contract implements the full ERC-721

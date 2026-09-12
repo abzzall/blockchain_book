@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.36;
+pragma solidity 0.8.37;
 
 import {VulnerableVault, SafeVault, Reenterer, SafeReenterer} from "../src/Reentrancy.sol";
 import {OriginAuthorised, Lure, Proxy, Logic} from "../src/AccessAndDelegate.sol";
