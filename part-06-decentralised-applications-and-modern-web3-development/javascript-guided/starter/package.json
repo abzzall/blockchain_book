@@ -1,0 +1,15 @@
+{
+  "name": "@blockchain-handbook/javascript-guided-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chapter 21 guided walkthrough: starting point. Dependencies are added by the reader in step 2.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo": "node src/read-chain.mjs"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=20"
+  }
+}

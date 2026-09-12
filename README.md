@@ -184,14 +184,24 @@ voting power is delegated, snapshotted, and executed through a timelock.
 
 ### Standalone chapter samples
 
-Two directories are runnable chapter samples rather than numbered exercises.
+Three directories are runnable chapter samples rather than numbered exercises.
 Each pins its own `package-lock.json`, documents its own `npm ci` in its README,
 and is covered by `scripts/check-all.sh`:
 
 - `part-06-decentralised-applications-and-modern-web3-development/javascript/`
   — the chapter 21 ethers and viem samples.
+- `part-06-decentralised-applications-and-modern-web3-development/javascript-guided/`
+  — the same chapter 21 material as a step-by-step walkthrough. It holds a
+  `starter/` folder, whose tests are complete and whose code is stubbed with
+  numbered TODOs, and a `solution/` folder with the finished result. Only
+  `solution/` is tested by `scripts/check-all.sh`; `starter/` is expected to
+  fail until the reader completes it.
 - `part-07-development-tools/hardhat/` — the chapter 23, 25, and 27 Hardhat
   project.
+
+A sample in a new directory is invisible to both `npm ci` and the test suite
+unless it is added to `scripts/check-all.sh`, because these directories match no
+workspace glob in the root `package.json`. Add it there when you add the sample.
 
 ## Requirements
 

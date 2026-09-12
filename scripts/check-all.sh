@@ -53,6 +53,13 @@ install_standalone part-06-decentralised-applications-and-modern-web3-developmen
   npm test
 )
 
+echo "==> Testing the chapter 21 guided walkthrough solution"
+install_standalone part-06-decentralised-applications-and-modern-web3-development/javascript-guided/solution
+(
+  cd "${repository_dir}/part-06-decentralised-applications-and-modern-web3-development/javascript-guided/solution"
+  npm test
+)
+
 echo "==> Testing the chapter 23, 25, and 27 Hardhat samples"
 install_standalone part-07-development-tools/hardhat
 (
