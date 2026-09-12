@@ -184,18 +184,25 @@ voting power is delegated, snapshotted, and executed through a timelock.
 
 ### Standalone chapter samples
 
-Three directories are runnable chapter samples rather than numbered exercises.
+Four directories are runnable chapter samples rather than numbered exercises.
 Each pins its own `package-lock.json`, documents its own `npm ci` in its README,
 and is covered by `scripts/check-all.sh`:
 
 - `part-06-decentralised-applications-and-modern-web3-development/javascript/`
   — the chapter 21 ethers and viem samples.
 - `part-06-decentralised-applications-and-modern-web3-development/javascript-guided/`
-  — the same chapter 21 material as a step-by-step walkthrough. It holds a
-  `starter/` folder, whose tests are complete and whose code is stubbed with
-  numbered TODOs, and a `solution/` folder with the finished result. Only
-  `solution/` is tested by `scripts/check-all.sh`; `starter/` is expected to
-  fail until the reader completes it.
+  — the same chapter 21 material as a step-by-step walkthrough.
+- `part-06-decentralised-applications-and-modern-web3-development/react-dapp-guided/`
+  — the chapter 20 React interface, as a step-by-step walkthrough. It covers the
+  parts of a dApp that are not blockchain but defeat readers anyway: where chain
+  data must live, moving it between components, wiring a button to a call that
+  can fail, connecting and holding a wallet, `.env` and what must never be in it,
+  and classifying every failure so the page never hangs.
+
+Each walkthrough holds a `based-on/` folder, whose tests are complete and whose
+code is stubbed with numbered steps, and a `full-code/` folder with the finished
+result. Only `full-code/` is tested by `scripts/check-all.sh`; `based-on/` is
+expected to fail until the reader completes it.
 - `part-07-development-tools/hardhat/` — the chapter 23, 25, and 27 Hardhat
   project.
 

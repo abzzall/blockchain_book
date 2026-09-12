@@ -8,10 +8,10 @@ There are two folders here:
 
 | Folder | What it is |
 |---|---|
-| `starter/` | What you begin with. The tests are complete, the code is stubbed. |
-| `solution/` | The finished result. Read it after you have tried, not before. |
+| `based-on/` | What you begin with. The tests are complete, the code is stubbed. |
+| `full-code/` | The finished result. Read it after you have tried, not before. |
 
-The tests in `starter/test/` already describe everything the code must do, so
+The tests in `based-on/test/` already describe everything the code must do, so
 after each step run `npm test` and let the failures tell you what is left. The
 starter currently fails on its very first line, because step 3 has not been done.
 
@@ -30,7 +30,7 @@ npm --version
 this book explains the installation — from here on chapters simply say to make
 sure Node.js is installed.
 
-Then copy `starter/` somewhere you can work in.
+Then copy `based-on/` somewhere you can work in.
 
 ## Step 2 — dependencies
 
@@ -108,5 +108,5 @@ It reads a public endpoint by default. To use a different network, set `RPC_URL`
 
 ## If you get stuck
 
-`solution/` holds the finished version of both files. Compare rather than copy —
+`full-code/` holds the finished version of both files. Compare rather than copy —
 the tests pass either way, and only one of the two teaches you anything.

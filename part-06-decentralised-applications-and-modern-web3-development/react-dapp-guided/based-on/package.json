@@ -1,0 +1,26 @@
+{
+  "name": "@blockchain-handbook/react-dapp-guided-based-on",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Chapter 20 guided walkthrough: the starting point. Work through the TODOs.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.90.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "viem": "2.56.3",
+    "wagmi": "2.17.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "5.0.4",
+    "vite": "7.1.9"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

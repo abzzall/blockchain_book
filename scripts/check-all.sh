@@ -53,11 +53,19 @@ install_standalone part-06-decentralised-applications-and-modern-web3-developmen
   npm test
 )
 
-echo "==> Testing the chapter 21 guided walkthrough solution"
-install_standalone part-06-decentralised-applications-and-modern-web3-development/javascript-guided/solution
+echo "==> Testing the chapter 21 guided walkthrough (full-code)"
+install_standalone part-06-decentralised-applications-and-modern-web3-development/javascript-guided/full-code
 (
-  cd "${repository_dir}/part-06-decentralised-applications-and-modern-web3-development/javascript-guided/solution"
+  cd "${repository_dir}/part-06-decentralised-applications-and-modern-web3-development/javascript-guided/full-code"
   npm test
+)
+
+echo "==> Testing the chapter 20 React dApp walkthrough (full-code)"
+install_standalone part-06-decentralised-applications-and-modern-web3-development/react-dapp-guided/full-code
+(
+  cd "${repository_dir}/part-06-decentralised-applications-and-modern-web3-development/react-dapp-guided/full-code"
+  npm test
+  npm run build
 )
 
 echo "==> Testing the chapter 23, 25, and 27 Hardhat samples"

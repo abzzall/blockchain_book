@@ -3,7 +3,7 @@
  *
  * GUIDED WALKTHROUGH -- STARTER FILE.
  * This script only ever reads. Nothing here is signed, no key is used, and no
- * transaction is sent. The completed file is in ../solution/src/read-chain.mjs.
+ * transaction is sent. The completed file is in ../full-code/src/read-chain.mjs.
  */
 
 // TODO (step 6): import a read-only client from each library.

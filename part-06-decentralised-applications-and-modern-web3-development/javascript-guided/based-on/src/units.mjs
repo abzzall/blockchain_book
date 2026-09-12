@@ -5,7 +5,7 @@
  * Each TODO below is a step in the chapter. The tests in test/units.test.mjs
  * already describe what these must do, so run `npm test` after each step and
  * let the failures tell you what is left. The completed file is in
- * ../solution/src/units.mjs -- read it after you have tried, not before.
+ * ../full-code/src/units.mjs -- read it after you have tried, not before.
  */
 
 // TODO (step 3): re-export the four conversion helpers from viem, so the rest

@@ -83,6 +83,80 @@ template kept alongside twenty working exercises drifts out of step with them
 and nothing fails when it does. Start a new exercise by copying the existing one
 whose shape is closest — it is current by construction, and its tests prove it.
 
+## How much to explain: three tiers
+
+Every worked example sorts its material into three tiers, and each tier gets a
+different treatment. The failure this prevents is the common one where a
+tutorial explains the chain in depth, waves at everything else, and leaves the
+reader unable to assemble a working program from either.
+
+**Tier 1 — the blockchain parts. Explain fully.**
+Contract calls, ABIs and encoding, addresses and chain ids, transaction
+lifecycle and receipts, gas and fees, signing, wallet permission, events,
+confirmation and finality, `bigint` amounts. These are the subject. Explain what
+each does, why it is that way, and what it does not establish. Never reduce one
+of these to a command to copy.
+
+**Tier 2 — not blockchain, but where readers actually get stuck. Explain.**
+Anything at the boundary between ordinary programming and the chain, where the
+chain's behaviour makes the ordinary technique wrong:
+
+- error handling: every distinct failure, what each means, what it cost, what
+  the user should do next, and never a state that hangs;
+- holding and refreshing data returned by a chain call, and why the obvious
+  place to put it is the wrong one;
+- moving that data between components, modules, or callbacks;
+- wiring an event handler — a button, a form — to a call that can fail, and the
+  states it passes through;
+- connecting to a wallet and keeping the connection across reloads and across
+  the user changing account or network;
+- configuration and secrets: what may be committed, what reaches the browser,
+  what to do when a key is leaked.
+
+This tier is explained because the chain is what makes it hard. The same
+techniques in a program with no chain in it would need no comment.
+
+**Tier 3 — incidental. Supply whole, do not explain.**
+Anything whose only consequence is cosmetic or structural. Styling, markup
+scaffolding, build and tooling configuration, directory layout, boilerplate
+entry points, and any dependency install that is merely an install are the
+common cases, but the test is the principle and not the list: if getting it
+wrong produces an ugly result rather than a wrong one, it is tier 3.
+
+Give the file, say what it is in one clause, and move on — "copy `styles.css`
+from the repository", "`npm install`, which fetches what the file names". Do not
+apologise for it and do not half-explain it. A reader who wants to know how CSS
+or a bundler works is reading the wrong book, and the space belongs to tier 1.
+
+A step whose tier is unclear is tier 2 if getting it wrong produces a broken or
+misleading interface, and tier 3 if getting it wrong produces an ugly one.
+
+## Installation is explained once
+
+The first chapter that needs a tool explains how to install it, including how to
+tell that it worked. Every later chapter says only to make sure it is installed
+and cross-references the first. Repeating the instructions in each chapter is
+what makes a book feel padded; omitting them everywhere is what makes a reader
+give up on chapter one.
+
+## Guided examples come in two folders
+
+Where an example is large enough to build up rather than read, it ships as a
+pair:
+
+- `based-on/` — the starting point. Tests complete, code stubbed behind numbered
+  steps that match the chapter's.
+- `full-code/` — the finished result, which must pass its own tests.
+
+Every explanation of such an example ends by naming where the full code is, as a
+path plus a link to the repository. A reader must never have to guess whether a
+finished version exists.
+
+Only `full-code/` is wired into `scripts/check-all.sh`; `based-on/` is expected
+to fail until the reader completes it. A new sample directory matches no
+workspace glob in the root `package.json`, so it is installed by nothing and
+tested by nothing until it is added to that script by hand.
+
 ## Writing the interactive steps
 
 Because interfaces change, a step describes **what must become true**, not
