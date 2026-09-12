@@ -7,8 +7,8 @@ output, dependency tree, or cache from a working tree was present.
 | Field | Value |
 | --- | --- |
 | Date | 2026-09-12 |
-| Commit | **not yet a release commit --- see below** |
-| Tracked files | 371 |
+| Validated commit | `b51b4ad63a888c76bbecb494b9e4360117f6fcd7` |
+| Tracked files | 373 |
 | Operating system | Ubuntu 24.04.4 LTS x86_64 |
 | Python | 3.12.3 |
 | Node.js | v24.15.0 |
@@ -39,15 +39,13 @@ They are not part of `check-all.sh` and are not counted above.
 
 ## Status of this record
 
-This run validates the **working tree** as it stood on the date above, using only
-files tracked by git. It is not yet a release record, because the changes it
-covers are uncommitted.
+This run validates commit `b51b4ad63a888c76bbecb494b9e4360117f6fcd7`
+using only files tracked by git. The follow-up commit that records this hash
+changes this evidence file only, not the executable tree that was tested.
 
-**Before submission, regenerate this file at the exact release commit** and
-record that commit hash in the table. A validation of a tree that no commit
-corresponds to cannot be audited by anyone else. The CI workflow in
-`.github/workflows/check.yml` does this automatically for every pushed commit
-and retains the output as a build artefact for 90 days.
+The CI workflow in `.github/workflows/check.yml` repeats the same commands for
+every pushed commit and retains the output as a build artefact for 90 days. Its
+run at the eventual release commit is the final release record.
 
 ## Reproducing this record
 
