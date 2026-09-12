@@ -131,6 +131,35 @@ or a bundler works is reading the wrong book, and the space belongs to tier 1.
 A step whose tier is unclear is tier 2 if getting it wrong produces a broken or
 misleading interface, and tier 3 if getting it wrong produces an ugly one.
 
+## Steps are atomic
+
+A step is one action. Not one file, not one contract, not "now write the
+withdrawal function" — one thing the reader does, and then the reason it was
+needed.
+
+The test is whether the step can be stated as a single instruction with a single
+justification:
+
+> To let the service take payment, add `payable` to `deposit`. Without it the
+> compiler rejects any call carrying value, so the function cannot receive ether
+> at all.
+
+That is a step. "Write the vault contract" is not; neither is showing thirty
+lines and describing them afterwards. When a contract is built up over a section,
+each state variable, each modifier, each guard clause, each external call is its
+own step, in the order a person would actually write them, with the code added at
+that step shown on its own.
+
+Two consequences follow. The reader can stop at any step and have something that
+compiles or a stated reason why it does not yet. And every line in the finished
+file has been justified once, which is the property that distinguishes a
+walkthrough from a listing with commentary.
+
+The exception is tier 3. Incidental material is not decomposed at all — it is
+handed over whole, because splitting a stylesheet into steps would imply the
+reader should be reasoning about each rule, which is exactly the message the tier
+system exists to avoid sending.
+
 ## Installation is explained once
 
 The first chapter that needs a tool explains how to install it, including how to
