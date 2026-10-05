@@ -30,6 +30,7 @@ sample_directories=(
   part-01-blockchain-foundations/labs/lab-13-digital-signatures
   part-03-ethereum/labs/lab-14-applying-a-block
   part-13-privacy-identity-and-transparency/labs/lab-17-unlinkability-and-clustering
+  part-13-privacy-identity-and-transparency/labs/lab-19-zero-knowledge-proof
   part-15-institutions-and-compliance-concepts/labs/lab-18-exposure-scoring
 )
 
