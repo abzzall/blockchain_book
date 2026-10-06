@@ -65,7 +65,7 @@ point of display — never `Number()`, which loses precision above 2^53 − 1.
 person and can be refused, so it needs the same error handling as anything else.
 The connection survives a reload because wagmi stores the last connector and
 reconnects. And the user can change account or network *in the wallet* without
-touching your page: `useAccount` re-renders when they do, whereas code that
+touching your page: `useConnection` re-renders when they do, whereas code that
 copied the address into `useState` would keep showing the old one. That is the
 most common wallet bug in a first dApp.
 

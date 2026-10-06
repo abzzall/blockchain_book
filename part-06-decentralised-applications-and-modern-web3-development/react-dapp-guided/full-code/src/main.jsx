@@ -6,7 +6,7 @@
  * very top, once, and never again:
  *
  *   WagmiProvider          supplies the chain configuration and the wallet
- *                          connection. Every useAccount, useReadContract and
+ *                          connection. Every useConnection, useReadContract and
  *                          useWriteContract below reads from it.
  *
  *   QueryClientProvider    supplies the cache. wagmi's read hooks are built on

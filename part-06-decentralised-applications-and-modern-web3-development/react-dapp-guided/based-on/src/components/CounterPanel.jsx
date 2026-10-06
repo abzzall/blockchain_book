@@ -29,12 +29,12 @@
  * 2^53 - 1, as chapter 21 showed.
  */
 import { useState } from 'react';
-import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
+import { useConnection, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { counterAbi, config } from '../config.js';
 import { StatusBanner } from './StatusBanner.jsx';
 
 export function CounterPanel({ onValueRead }) {
-  const { isConnected } = useAccount();
+  const { isConnected } = useConnection();
   const [by, setBy] = useState('1');
 
   const read = useReadContract({

@@ -13,20 +13,21 @@
  *    every render. See the comment about the QueryClient in main.jsx.
  *
  * 3. The user can change account or network *in the wallet*, without touching
- *    the page. useAccount re-renders when they do; code that read the address
+ *    the page. useConnection re-renders when they do; code that read the address
  *    once into its own useState would not, and would keep showing the old
  *    account. That is the single most common wallet bug in a first dApp, and
  *    the fix is to not copy the value at all.
  */
-import { useAccount, useConnect, useDisconnect, useChainId } from 'wagmi';
+import { useConnection, useConnect, useConnectors, useDisconnect, useChainId } from 'wagmi';
 import { chain } from '../config.js';
 import { StatusBanner } from './StatusBanner.jsx';
 
 export function WalletPanel() {
   // Read the live values. Never copy these into useState.
-  const { address, isConnected, connector } = useAccount();
+  const { address, isConnected, connector } = useConnection();
   const chainId = useChainId();
-  const { connect, connectors, isPending, error, reset } = useConnect();
+  const { connect, isPending, error, reset } = useConnect();
+  const connectors = useConnectors();
   const { disconnect } = useDisconnect();
 
   const onWrongChain = isConnected && chainId !== chain.id;
